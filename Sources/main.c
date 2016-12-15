@@ -45,6 +45,7 @@ float temperature,joystick_X,joystick_Y,SW,solar_panel;
 unsigned char temporal_var;
 unsigned char temp[7]="";
 unsigned char temp2[7]=""; // temporal variable to send data to GLCD
+int alfa,gamma;
 double temporal;
 
 void main(void) {
@@ -53,7 +54,7 @@ void main(void) {
 	init_PWM();
 	//init_SCI();
 	glcd_init();
-	glcd_message("XOXOXOXOXOXOXOXO");
+
     for(;;) {  
     	sampling_ADC();
     	decision_data();
@@ -96,6 +97,13 @@ void glcd_init(void){ /* Process to initialize the GLCD*/
 	glcd_instruction(cmd_displayON); // Turn on the display
 	glcd_instruction(cmd_clear); // Clearing display
 	glcd_instruction(cmd_line1); // Setting cursor at first line
+	glcd_message("XOXOXOXOXOXOXOXO");
+	
+	glcd_instruction(cmd_line2); // Setting cursor at second line+    
+	glcd_message(" Delta=");
+	
+	glcd_instruction(cmd_line3); // Setting cursor at second line+    	
+	glcd_message(" Gamma=");
 }
 
 void glcd_instruction(unsigned char instruction){ /* Process to send a instruction towards GLCD*/  
@@ -167,27 +175,43 @@ void sampling_ADC(void){
 }
 
 void show_data(void){
-	//temporal=(double)temperature;
-	//sprintf(temp,"%3.2f",temporal);		
-	glcd_instruction(cmd_line2); // Setting cursor at second line+    
-	//glcd_message("T=");
-	//glcd_message(temp);	
-	
-	//solar_panel=1.589;
-	temporal=(double)solar_panel;
-	sprintf(temp2,"%4.3f",temporal);		
-	glcd_message(" S=");
-	glcd_message(temp2);	
-		
+	glcd_instruction(cmd_line2+4); // Setting cursor at second line+    
+	sprintf(temp2,"%i",alfa);		
+	glcd_message(temp2);
+	glcd_message("   ");
+
+	glcd_instruction(cmd_line3+4); // Setting cursor at second line+    
+	sprintf(temp2,"%i",gamma);		
+	glcd_message(temp2);
+	glcd_message("   ");
 }
 
 void decision_data(void){
 	temporal_var=(unsigned char)(solar_panel*51);
 	TPM1C2V=255-temporal_var;
+	
 	if(temperature>30){
 		FAN = 1;
 	}
 	else {
 		FAN = 0;
+	}
+	
+	if(joystick_Y>4.5){
+			alfa ++;
+			alfa =(alfa>360)?(360):(alfa);
+	}
+	else if(joystick_Y<0.1) {
+			alfa --;
+			alfa = (alfa<1)?(0):(alfa);
+	}
+	
+	if(joystick_X>4.5){
+			gamma ++;
+			gamma =(gamma>90)?(90):(gamma);
+	}
+	else if(joystick_X<0.1) {
+			gamma --;
+			gamma = (gamma<1)?(0):(gamma);
 	}
 }
