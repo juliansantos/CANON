@@ -59,7 +59,6 @@ void main(void) {
     	sampling_ADC();
     	decision_data();
     	show_data();
-
     } 
 }
 
@@ -178,12 +177,16 @@ void show_data(void){
 	glcd_instruction(cmd_line2+4); // Setting cursor at second line+    
 	sprintf(temp2,"%i",alfa);		
 	glcd_message(temp2);
-	glcd_message("   ");
+	glcd_message(" ");
+	glcd_data(0x09); // Symbol Degree
+	glcd_message(" ");
 
 	glcd_instruction(cmd_line3+4); // Setting cursor at second line+    
 	sprintf(temp2,"%i",gamma);		
 	glcd_message(temp2);
-	glcd_message("   ");
+	glcd_message(" ");
+	glcd_data(0x09); // Symbol Degree
+	glcd_message(" ");
 }
 
 void decision_data(void){
@@ -214,4 +217,15 @@ void decision_data(void){
 			gamma --;
 			gamma = (gamma<1)?(0):(gamma);
 	}
+	
+	if(SW<1){
+		glcd_instruction(cmd_line4); // Setting cursor at second line+    	
+		glcd_message("      FUEGO!");
+		delayAx5ms(200);
+	    delayAx5ms(200);
+	    glcd_instruction(cmd_line4); // Setting cursor at second line+    	
+	    glcd_message("            ");
+	    //send_coordinates;
+	}
+
 }
