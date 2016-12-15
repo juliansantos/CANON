@@ -36,15 +36,18 @@ void glcd_message(unsigned char message[]);  //Signature of process for send a s
 void init_ADC(void); // Signature of process to initialize the ADC
 void mcu_config(void); // Signature of process to initialize the MCU
 void init_PWM(void);
-//void init_SCI(void);
+void init_SCI(void);
 void sampling_ADC(void); // Signature of process to sampling data
 void show_data(void); // Signature of process to show the sampled data
 void decision_data(void);
+void send_coordinates(void);
+
 // Variable definition SECTION
 float temperature,joystick_X,joystick_Y,SW,solar_panel;
 unsigned char temporal_var;
 unsigned char temp[7]="";
 unsigned char temp2[7]=""; // temporal variable to send data to GLCD
+char counter;
 int alfa,gamma;
 double temporal;
 
@@ -52,9 +55,14 @@ void main(void) {
 	mcu_config();
 	init_ADC();
 	init_PWM();
-	//init_SCI();
+	init_SCI();
 	glcd_init();
 
+	/*while(1){
+		SCI2D='B'; //START CHARACTER
+		while(!SCI2S1_TDRE);
+	}*/
+	
     for(;;) {  
     	sampling_ADC();
     	decision_data();
@@ -99,10 +107,15 @@ void glcd_init(void){ /* Process to initialize the GLCD*/
 	glcd_message("XOXOXOXOXOXOXOXO");
 	
 	glcd_instruction(cmd_line2); // Setting cursor at second line+    
-	glcd_message(" Delta=");
+	glcd_message(" Alfa=");
 	
 	glcd_instruction(cmd_line3); // Setting cursor at second line+    	
 	glcd_message(" Gamma=");
+}
+
+void init_SCI(void){ /* Process to initialize the SCI*/ 
+	SCI2BD=60;
+	SCI2C2_TE=1; //Enabling Transmission
 }
 
 void glcd_instruction(unsigned char instruction){ /* Process to send a instruction towards GLCD*/  
@@ -150,7 +163,7 @@ void delayAx5ms(unsigned char var_delay){  // Process of delay creation *DEVELOP
 	}
 }
 
-void sampling_ADC(void){
+void sampling_ADC(void){ /* Process to samping the five channels*/
 	ADCSC1 = 0b00000000; // Input channel 0
 	while(ADCSC1_COCO == 0); // Waiting for end of conversion 
 	joystick_X=ADCR;
@@ -173,7 +186,7 @@ void sampling_ADC(void){
 	solar_panel = solar_panel*5/255;
 }
 
-void show_data(void){
+void show_data(void){ /* Process to show significant data in the GLCD*/
 	glcd_instruction(cmd_line2+4); // Setting cursor at second line+    
 	sprintf(temp2,"%i",alfa);		
 	glcd_message(temp2);
@@ -189,7 +202,7 @@ void show_data(void){
 	glcd_message(" ");
 }
 
-void decision_data(void){
+void decision_data(void){ /* Process to take decision based on the sampled data*/
 	temporal_var=(unsigned char)(solar_panel*51);
 	TPM1C2V=255-temporal_var;
 	
@@ -223,9 +236,22 @@ void decision_data(void){
 		glcd_message("      FUEGO!");
 		delayAx5ms(200);
 	    delayAx5ms(200);
+	    send_coordinates(); // sending data
 	    glcd_instruction(cmd_line4); // Setting cursor at second line+    	
 	    glcd_message("            ");
-	    //send_coordinates;
 	}
 
 }
+
+void send_coordinates(void){
+	for(counter = 0;counter<10;counter++){
+	SCI2D='B'; //START CHARACTER
+	while(!SCI2S1_TDRE);
+	SCI2D=(alfa/2);
+	while(!SCI2S1_TDRE);
+	SCI2D=(gamma);
+	while(!SCI2S1_TDRE);
+	}
+}
+
+

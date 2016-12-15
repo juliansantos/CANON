@@ -26,8 +26,8 @@ Entry point: 0xC07B (_Startup)
 _startupData is allocated at 0xC084 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x100     38
-  _Copy    *toCopyDownBeg 0xE3B4
+  _Range   pZeroOut       0x100     39
+  _Copy    *toCopyDownBeg 0xE3F1
 } _startupData;
 
 *********************************************************************************************
@@ -37,9 +37,9 @@ Section Name                    Size  Type     From       To       Segment
 .init                            132     R     0xC000     0xC083   ROM
 .startData                        18     R     0xC084     0xC095   ROM
 .rodata                          308     R     0xC096     0xC1C9   ROM
-.rodata1                          73     R     0xC1CA     0xC212   ROM
-.text                           8609     R     0xC213     0xE3B3   ROM
-.copy                              2     R     0xE3B4     0xE3B5   ROM
+.rodata1                          72     R     0xC1CA     0xC211   ROM
+.text                           8671     R     0xC212     0xE3F0   ROM
+.copy                              2     R     0xE3F1     0xE3F2   ROM
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg0
 .abs_section_1                     1   N/I        0x1        0x1   .absSeg1
 .abs_section_2                     1   N/I        0x2        0x2   .absSeg2
@@ -185,13 +185,13 @@ Section Name                    Size  Type     From       To       Segment
 .abs_section_1812                  2   N/I     0x1812     0x1813   .absSeg142
 .abs_section_1814                  2   N/I     0x1814     0x1815   .absSeg143
 .bss                              13   R/W      0x100      0x10C   RAM
-.common                           25   R/W      0x10D      0x125   RAM
-.stack                           128   R/W      0x126      0x1A5   RAM
+.common                           26   R/W      0x10D      0x126   RAM
+.stack                           128   R/W      0x127      0x1A6   RAM
 .vectSeg144_vect                   2     R     0xFFFE     0xFFFF   .vectSeg144
 
 Summary of section sizes per section type:
-READ_ONLY (R):        23B8 (dec:     9144)
-READ_WRITE (R/W):       A6 (dec:      166)
+READ_ONLY (R):        23F5 (dec:     9205)
+READ_WRITE (R/W):       A7 (dec:      167)
 NO_INIT (N/I):          A6 (dec:      166)
 
 *********************************************************************************************
@@ -206,30 +206,32 @@ OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 MODULE:                 -- main_c.obj --
 - PROCEDURES:
-     main                                      C213      17      23       1   .text       
-     mcu_config                                C22A       9       9       1   .text       
-     init_PWM                                  C233      12      18       1   .text       
-     init_ADC                                  C245       9       9       1   .text       
-     glcd_init                                 C24E      3C      60       1   .text       
-     glcd_instruction                          C28A      12      18      10   .text       
-     glcd_data                                 C29C      12      18       2   .text       
-     glcd_message                              C2AE      2B      43      10   .text       
-     delayAx5ms                                C2D9      1B      27       7   .text       
-     sampling_ADC                              C2F4      FD     253       1   .text       
-     show_data                                 C3F1      5C      92       1   .text       
-     decision_data                             C44D     10F     271       2   .text       
+     main                                      C212      1A      26       1   .text       
+     mcu_config                                C22C       9       9       1   .text       
+     init_PWM                                  C235      12      18       1   .text       
+     init_ADC                                  C247       9       9       1   .text       
+     glcd_init                                 C250      3C      60       1   .text       
+     init_SCI                                  C28C       8       8       1   .text       
+     glcd_instruction                          C294      12      18      10   .text       
+     glcd_data                                 C2A6      12      18       2   .text       
+     glcd_message                              C2B8      2B      43      10   .text       
+     delayAx5ms                                C2E3      1B      27       7   .text       
+     sampling_ADC                              C2FE      FD     253       1   .text       
+     show_data                                 C3FB      5C      92       1   .text       
+     decision_data                             C457     112     274       2   .text       
+     send_coordinates                          C569      30      48       1   .text       
 - VARIABLES:
      STRING.XOXOXOXOXOXOXOXO.3                 C1CA      11      17       1   .rodata1    
-     STRING..Delta..4                          C1DB       8       8       1   .rodata1    
-     STRING..Gamma..5                          C1E3       8       8       1   .rodata1    
-     STRING..i.6                               C1EB       3       3       1   .rodata1    
-     STRING...7                                C1EE       2       2       1   .rodata1    
-     STRING...8                                C1F0       2       2       1   .rodata1    
-     STRING..i.9                               C1F2       3       3       1   .rodata1    
-     STRING...10                               C1F5       2       2       1   .rodata1    
-     STRING...11                               C1F7       2       2       1   .rodata1    
-     STRING.......FUEGO..12                    C1F9       D      13       1   .rodata1    
-     STRING..............13                    C206       D      13       1   .rodata1    
+     STRING..Alfa..4                           C1DB       7       7       1   .rodata1    
+     STRING..Gamma..5                          C1E2       8       8       1   .rodata1    
+     STRING..i.6                               C1EA       3       3       1   .rodata1    
+     STRING...7                                C1ED       2       2       1   .rodata1    
+     STRING...8                                C1EF       2       2       1   .rodata1    
+     STRING..i.9                               C1F1       3       3       1   .rodata1    
+     STRING...10                               C1F4       2       2       1   .rodata1    
+     STRING...11                               C1F6       2       2       1   .rodata1    
+     STRING.......FUEGO..12                    C1F8       D      13       1   .rodata1    
+     STRING..............13                    C205       D      13       1   .rodata1    
      temp2                                      100       7       7       4   .bss        
      temperature                                10D       4       4       4   .common     
      joystick_X                                 111       4       4       5   .common     
@@ -237,8 +239,9 @@ MODULE:                 -- main_c.obj --
      SW                                         119       4       4       4   .common     
      solar_panel                                11D       4       4       4   .common     
      temporal_var                               121       1       1       1   .common     
-     alfa                                       122       2       2       6   .common     
-     gamma                                      124       2       2       6   .common     
+     counter                                    122       1       1       3   .common     
+     alfa                                       123       2       2       7   .common     
+     gamma                                      125       2       2       7   .common     
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
      loadByte                                  C000       E      14       5   .init       
@@ -247,7 +250,7 @@ MODULE:                 -- start08_c.obj --
 - VARIABLES:
      _startupData                              C084       6       6       4   .startData  
 - LABELS:
-     __SEG_END_SSTACK                           1A6       0       0       1               
+     __SEG_END_SSTACK                           1A7       0       0       1               
 MODULE:                 -- mc9s08jm16_c.obj --
 - PROCEDURES:
 - VARIABLES:
@@ -287,11 +290,11 @@ MODULE:                 -- mc9s08jm16_c.obj --
      _SCI1C3                                     3E       1       1       0   .abs_section_3e
      _SCI1D                                      3F       1       1       0   .abs_section_3f
      _SCI2C1                                     42       1       1       0   .abs_section_42
-     _SCI2C2                                     43       1       1       0   .abs_section_43
-     _SCI2S1                                     44       1       1       0   .abs_section_44
+     _SCI2C2                                     43       1       1       1   .abs_section_43
+     _SCI2S1                                     44       1       1       3   .abs_section_44
      _SCI2S2                                     45       1       1       0   .abs_section_45
      _SCI2C3                                     46       1       1       0   .abs_section_46
-     _SCI2D                                      47       1       1       0   .abs_section_47
+     _SCI2D                                      47       1       1       3   .abs_section_47
      _MCGC1                                      48       1       1       0   .abs_section_48
      _MCGC2                                      49       1       1       0   .abs_section_49
      _MCGTRM                                     4A       1       1       0   .abs_section_4a
@@ -382,7 +385,7 @@ MODULE:                 -- mc9s08jm16_c.obj --
      _TPM1C2V                                    2C       2       2       2   .abs_section_2c
      _TPM1C3V                                    2F       2       2       0   .abs_section_2f
      _SCI1BD                                     38       2       2       0   .abs_section_38
-     _SCI2BD                                     40       2       2       0   .abs_section_40
+     _SCI2BD                                     40       2       2       1   .abs_section_40
      _SPI1D16                                    54       2       2       0   .abs_section_54
      _SPI1M                                      56       2       2       0   .abs_section_56
      _TPM2CNT                                    61       2       2       0   .abs_section_61
@@ -397,15 +400,15 @@ MODULE:                 -- mc9s08jm16_c.obj --
      _DBGF                                     1814       2       2       0   .abs_section_1814
 MODULE:                 -- math08d.o (ansis.lib) --
 - PROCEDURES:
-     frexp                                     C55C      5E      94       1   .text       
+     frexp                                     C599      5E      94       1   .text       
 - VARIABLES:
 MODULE:                 -- printf.o (ansis.lib) --
 - PROCEDURES:
-     Ten                                       C5BA      F2     242       7   .text       
-     vprintf                                   C6AC     CC5    3269      99   .text       
-     _out                                      D371       D      13      14   .text       
-     deposit_char                              D37E      15      21       1   .text       
-     sprintf                                   D393      3B      59       2   .text       
+     Ten                                       C5F7      F2     242       7   .text       
+     vprintf                                   C6E9     CC5    3269      99   .text       
+     _out                                      D3AE       D      13      14   .text       
+     deposit_char                              D3BB      15      21       1   .text       
+     sprintf                                   D3D0      3B      59       2   .text       
 - VARIABLES:
      pow10                                     C096      28      40       4   .rodata     
      pow16                                     C0BE      20      32       4   .rodata     
@@ -415,103 +418,103 @@ MODULE:                 -- printf.o (ansis.lib) --
      pbuf                                       107       6       6      14   .bss        
 MODULE:                 -- rtshc08.o (ansis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              D3CE      20      32       3   .text       
-     _PUSH_ARGS_D                              D3EE      33      51       2   .text       
-     _ENTER_UNARY_L                            D421      29      41       3   .text       
-     _ENTER_UNARY_L64                          D44A      3D      61       2   .text       
-     _ENTER_UNARY_L64_4                        D487      29      41       2   .text       
-     _ENTER_BINARY_L                           D4B0      16      22       2   .text       
-     _ENTER_BINARY_L_RC                        D4C6      19      25       4   .text       
-     _ENTER_BINARY_L_LC                        D4DF      1A      26       1   .text       
-     _ENTER_BINARY_L64                         D4F9      17      23       3   .text       
-     _ENTER_BINARY_L64_RC                      D510      13      19       3   .text       
-     _IDIVMOD                                  D523      69     105       1   .text       
-     _SPLITSIGN                                D58C      1C      28       2   .text       
-     _LSUB_k_is_k_minus_j                      D5A8      1F      31       1   .text       
-     _LDIVMOD                                  D5C7      A4     164       2   .text       
-     _NEG_L_HX                                 D66B      13      19       2   .text       
-     _LMODU_k_is_k_mod_j                       D67E       B      11       1   .text       
-     _LDIVU_k_is_k_div_j                       D689      17      23       1   .text       
-     _LCMP_k_rel_j                             D6A0      1F      31       1   .text       
-     _IMUL_STAR08                              D6BF      27      39       3   .text       
-     _IDIVS_STAR08                             D6E6      1B      27       2   .text       
-     _IMODS_STAR08                             D701      25      37       2   .text       
-     _LNEG                                     D726      1C      28       1   .text       
-     _LSUB                                     D742       6       6       3   .text       
-     _LDIVU_RC                                 D748       6       6       1   .text       
-     _LMODU_RC                                 D74E       6       6       1   .text       
-     _LCMP                                     D754       6       6       7   .text       
-     _COPY                                     D75A      30      48       9   .text       
-     _POP32                                    D78A      1A      26      24   .text       
-     _POP64                                    D7A4      2E      46      16   .text       
-     _SEXT16_32                                D7D2       D      13       2   .text       
-     _Jump_Table_Addr                          D7DF      16      22       2   .text       
-     _Search_Table_8_Addr                      D7F5      21      33       1   .text       
-     _Search_Table_8_Offset                    D816      25      37       1   .text       
-     F_CLRK                                    D83B       6       6       3   .text       
-     F_CLRK_Unary                              D841       6       6       1   .text       
-     F_NANK                                    D847       6       6       2   .text       
-     F_INFK                                    D84D       6       6       3   .text       
-     F_TLK                                     D853      1E      30       1   .text       
-     _UNPACK_k_to_K                            D871      58      88       2   .text       
-     _UNPACK_k_to_K_Unary                      D8C9      58      88       1   .text       
-     _UNPACK_j_to_L                            D921      58      88       2   .text       
-     _PACK_K_to_k                              D979      63      99       2   .text       
-     _PACK_K_to_k_Unary                        D9DC      4F      79       1   .text       
-     F_NORMK                                   DA2B      43      67       2   .text       
-     _FMUL_K_is_K_times_L                      DA6E      88     136       1   .text       
-     _FDIV_K_is_L_div_K                        DAF6      B5     181       1   .text       
-     _F_LONGK                                  DBAB      5A      90       1   .text       
-     _F_FLOATK                                 DC05      2E      46       1   .text       
-     _FCMP_k_rel_j                             DC33      2C      44       1   .text       
-     _FMUL_Common                              DC5F       F      15       1   .text       
-     _FDIV_Common                              DC6E       F      15       1   .text       
-     _FMUL_RC                                  DC7D       7       7       7   .text       
-     _FDIV_RC                                  DC84       7       7       5   .text       
-     _FSTRUNC                                  DC8B       B      11       1   .text       
-     _FCMP_RC                                  DC96       6       6       4   .text       
-     _FUFLOAT                                  DC9C       B      11       5   .text       
-     D_TLK                                     DCA7      23      35       2   .text       
-     D_TKRes                                   DCCA      11      17       1   .text       
-     D_XGKL                                    DCDB      34      52       1   .text       
-     D_CLRK                                    DD0F       6       6       3   .text       
-     D_CLRK_Unary                              DD15       6       6       3   .text       
-     D_NANK                                    DD1B       6       6       2   .text       
-     D_INFK                                    DD21       6       6       2   .text       
-     D_INFK_Unary                              DD27       6       6       1   .text       
-     _DUNPACK_k_to_K                           DD2D      89     137       2   .text       
-     _DUNPACK_k_to_K_Unary                     DDB6      89     137       1   .text       
-     _DUNPACK_j_to_L                           DE3F      89     137       2   .text       
-     _DPACK_K_to_k                             DEC8      A6     166       2   .text       
-     _DPACK_K_to_k_Unary                       DF6E      75     117       2   .text       
-     D_NORMK_Unary                             DFE3      6C     108       1   .text       
-     D_NORMK                                   E04F      6C     108       3   .text       
-     _DADD_K_is_K_plus_L                       E0BB      DF     223       1   .text       
-     _DMUL_K_is_K_times_L                      E19A      98     152       1   .text       
-     _DCMP_k_rel_j                             E232      2C      44       1   .text       
-     _D_FLOATK                                 E25E      45      69       1   .text       
-     _D_LONGK                                  E2A3      5B      91       1   .text       
-     _D_FTODK                                  E2FE      2A      42       1   .text       
-     _DADD_Common                              E328       C      12       3   .text       
-     _DSUB_Common                              E334       9       9       1   .text       
-     _DMUL_Common                              E33D       C      12       2   .text       
-     _DADD                                     E349       7       7       2   .text       
-     _DADD_RC                                  E350       7       7       1   .text       
-     _DSUB                                     E357       7       7       2   .text       
-     _DMUL                                     E35E       7       7       8   .text       
-     _DMUL_RC                                  E365       7       7       5   .text       
-     _DCMP_RC                                  E36C       6       6       3   .text       
-     _DNEG                                     E372      20      32       1   .text       
-     _DUFLOAT                                  E392       B      11       2   .text       
-     _DSTRUNC                                  E39D       B      11       7   .text       
-     _DLONG                                    E3A8       C      12       2   .text       
+     _PUSH_ARGS_L                              D40B      20      32       3   .text       
+     _PUSH_ARGS_D                              D42B      33      51       2   .text       
+     _ENTER_UNARY_L                            D45E      29      41       3   .text       
+     _ENTER_UNARY_L64                          D487      3D      61       2   .text       
+     _ENTER_UNARY_L64_4                        D4C4      29      41       2   .text       
+     _ENTER_BINARY_L                           D4ED      16      22       2   .text       
+     _ENTER_BINARY_L_RC                        D503      19      25       4   .text       
+     _ENTER_BINARY_L_LC                        D51C      1A      26       1   .text       
+     _ENTER_BINARY_L64                         D536      17      23       3   .text       
+     _ENTER_BINARY_L64_RC                      D54D      13      19       3   .text       
+     _IDIVMOD                                  D560      69     105       1   .text       
+     _SPLITSIGN                                D5C9      1C      28       2   .text       
+     _LSUB_k_is_k_minus_j                      D5E5      1F      31       1   .text       
+     _LDIVMOD                                  D604      A4     164       2   .text       
+     _NEG_L_HX                                 D6A8      13      19       2   .text       
+     _LMODU_k_is_k_mod_j                       D6BB       B      11       1   .text       
+     _LDIVU_k_is_k_div_j                       D6C6      17      23       1   .text       
+     _LCMP_k_rel_j                             D6DD      1F      31       1   .text       
+     _IMUL_STAR08                              D6FC      27      39       3   .text       
+     _IDIVS_STAR08                             D723      1B      27       3   .text       
+     _IMODS_STAR08                             D73E      25      37       2   .text       
+     _LNEG                                     D763      1C      28       1   .text       
+     _LSUB                                     D77F       6       6       3   .text       
+     _LDIVU_RC                                 D785       6       6       1   .text       
+     _LMODU_RC                                 D78B       6       6       1   .text       
+     _LCMP                                     D791       6       6       7   .text       
+     _COPY                                     D797      30      48       9   .text       
+     _POP32                                    D7C7      1A      26      24   .text       
+     _POP64                                    D7E1      2E      46      16   .text       
+     _SEXT16_32                                D80F       D      13       2   .text       
+     _Jump_Table_Addr                          D81C      16      22       2   .text       
+     _Search_Table_8_Addr                      D832      21      33       1   .text       
+     _Search_Table_8_Offset                    D853      25      37       1   .text       
+     F_CLRK                                    D878       6       6       3   .text       
+     F_CLRK_Unary                              D87E       6       6       1   .text       
+     F_NANK                                    D884       6       6       2   .text       
+     F_INFK                                    D88A       6       6       3   .text       
+     F_TLK                                     D890      1E      30       1   .text       
+     _UNPACK_k_to_K                            D8AE      58      88       2   .text       
+     _UNPACK_k_to_K_Unary                      D906      58      88       1   .text       
+     _UNPACK_j_to_L                            D95E      58      88       2   .text       
+     _PACK_K_to_k                              D9B6      63      99       2   .text       
+     _PACK_K_to_k_Unary                        DA19      4F      79       1   .text       
+     F_NORMK                                   DA68      43      67       2   .text       
+     _FMUL_K_is_K_times_L                      DAAB      88     136       1   .text       
+     _FDIV_K_is_L_div_K                        DB33      B5     181       1   .text       
+     _F_LONGK                                  DBE8      5A      90       1   .text       
+     _F_FLOATK                                 DC42      2E      46       1   .text       
+     _FCMP_k_rel_j                             DC70      2C      44       1   .text       
+     _FMUL_Common                              DC9C       F      15       1   .text       
+     _FDIV_Common                              DCAB       F      15       1   .text       
+     _FMUL_RC                                  DCBA       7       7       7   .text       
+     _FDIV_RC                                  DCC1       7       7       5   .text       
+     _FSTRUNC                                  DCC8       B      11       1   .text       
+     _FCMP_RC                                  DCD3       6       6       4   .text       
+     _FUFLOAT                                  DCD9       B      11       5   .text       
+     D_TLK                                     DCE4      23      35       2   .text       
+     D_TKRes                                   DD07      11      17       1   .text       
+     D_XGKL                                    DD18      34      52       1   .text       
+     D_CLRK                                    DD4C       6       6       3   .text       
+     D_CLRK_Unary                              DD52       6       6       3   .text       
+     D_NANK                                    DD58       6       6       2   .text       
+     D_INFK                                    DD5E       6       6       2   .text       
+     D_INFK_Unary                              DD64       6       6       1   .text       
+     _DUNPACK_k_to_K                           DD6A      89     137       2   .text       
+     _DUNPACK_k_to_K_Unary                     DDF3      89     137       1   .text       
+     _DUNPACK_j_to_L                           DE7C      89     137       2   .text       
+     _DPACK_K_to_k                             DF05      A6     166       2   .text       
+     _DPACK_K_to_k_Unary                       DFAB      75     117       2   .text       
+     D_NORMK_Unary                             E020      6C     108       1   .text       
+     D_NORMK                                   E08C      6C     108       3   .text       
+     _DADD_K_is_K_plus_L                       E0F8      DF     223       1   .text       
+     _DMUL_K_is_K_times_L                      E1D7      98     152       1   .text       
+     _DCMP_k_rel_j                             E26F      2C      44       1   .text       
+     _D_FLOATK                                 E29B      45      69       1   .text       
+     _D_LONGK                                  E2E0      5B      91       1   .text       
+     _D_FTODK                                  E33B      2A      42       1   .text       
+     _DADD_Common                              E365       C      12       3   .text       
+     _DSUB_Common                              E371       9       9       1   .text       
+     _DMUL_Common                              E37A       C      12       2   .text       
+     _DADD                                     E386       7       7       2   .text       
+     _DADD_RC                                  E38D       7       7       1   .text       
+     _DSUB                                     E394       7       7       2   .text       
+     _DMUL                                     E39B       7       7       8   .text       
+     _DMUL_RC                                  E3A2       7       7       5   .text       
+     _DCMP_RC                                  E3A9       6       6       3   .text       
+     _DNEG                                     E3AF      20      32       1   .text       
+     _DUFLOAT                                  E3CF       B      11       2   .text       
+     _DSTRUNC                                  E3DA       B      11       7   .text       
+     _DLONG                                    E3E5       C      12       2   .text       
 - VARIABLES:
 
 *********************************************************************************************
 MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
-  main_c.obj                                  32    841     73
+  main_c.obj                                  33    903     72
   start08_c.obj                                0    132      0
   mc9s08jm16_c.obj                           166      0      0
   math08d.o (ansis.lib)                        0     94      0
@@ -523,24 +526,24 @@ MODULE STATISTIC
 SECTION USE IN OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 SECTION: ".text"
-  main mcu_config init_PWM init_ADC glcd_init glcd_instruction glcd_data 
-  glcd_message delayAx5ms sampling_ADC show_data decision_data frexp Ten 
-  vprintf _out deposit_char sprintf _PUSH_ARGS_L _PUSH_ARGS_D _ENTER_UNARY_L 
-  _ENTER_UNARY_L64 _ENTER_UNARY_L64_4 _ENTER_BINARY_L _ENTER_BINARY_L_RC 
-  _ENTER_BINARY_L_LC _ENTER_BINARY_L64 _ENTER_BINARY_L64_RC _IDIVMOD _SPLITSIGN 
-  _LSUB_k_is_k_minus_j _LDIVMOD _NEG_L_HX _LMODU_k_is_k_mod_j 
-  _LDIVU_k_is_k_div_j _LCMP_k_rel_j _IMUL_STAR08 _IDIVS_STAR08 _IMODS_STAR08 
-  _LNEG _LSUB _LDIVU_RC _LMODU_RC _LCMP _COPY _POP32 _POP64 _SEXT16_32 
-  _Jump_Table_Addr _Search_Table_8_Addr _Search_Table_8_Offset F_CLRK 
-  F_CLRK_Unary F_NANK F_INFK F_TLK _UNPACK_k_to_K _UNPACK_k_to_K_Unary 
-  _UNPACK_j_to_L _PACK_K_to_k _PACK_K_to_k_Unary F_NORMK _FMUL_K_is_K_times_L 
-  _FDIV_K_is_L_div_K _F_LONGK _F_FLOATK _FCMP_k_rel_j _FMUL_Common _FDIV_Common 
-  _FMUL_RC _FDIV_RC _FSTRUNC _FCMP_RC _FUFLOAT D_TLK D_TKRes D_XGKL D_CLRK 
-  D_CLRK_Unary D_NANK D_INFK D_INFK_Unary _DUNPACK_k_to_K _DUNPACK_k_to_K_Unary 
-  _DUNPACK_j_to_L _DPACK_K_to_k _DPACK_K_to_k_Unary D_NORMK_Unary D_NORMK 
-  _DADD_K_is_K_plus_L _DMUL_K_is_K_times_L _DCMP_k_rel_j _D_FLOATK _D_LONGK 
-  _D_FTODK _DADD_Common _DSUB_Common _DMUL_Common _DADD _DADD_RC _DSUB _DMUL 
-  _DMUL_RC _DCMP_RC _DNEG _DUFLOAT _DSTRUNC _DLONG 
+  main mcu_config init_PWM init_ADC glcd_init init_SCI glcd_instruction 
+  glcd_data glcd_message delayAx5ms sampling_ADC show_data decision_data 
+  send_coordinates frexp Ten vprintf _out deposit_char sprintf _PUSH_ARGS_L 
+  _PUSH_ARGS_D _ENTER_UNARY_L _ENTER_UNARY_L64 _ENTER_UNARY_L64_4 
+  _ENTER_BINARY_L _ENTER_BINARY_L_RC _ENTER_BINARY_L_LC _ENTER_BINARY_L64 
+  _ENTER_BINARY_L64_RC _IDIVMOD _SPLITSIGN _LSUB_k_is_k_minus_j _LDIVMOD 
+  _NEG_L_HX _LMODU_k_is_k_mod_j _LDIVU_k_is_k_div_j _LCMP_k_rel_j _IMUL_STAR08 
+  _IDIVS_STAR08 _IMODS_STAR08 _LNEG _LSUB _LDIVU_RC _LMODU_RC _LCMP _COPY 
+  _POP32 _POP64 _SEXT16_32 _Jump_Table_Addr _Search_Table_8_Addr 
+  _Search_Table_8_Offset F_CLRK F_CLRK_Unary F_NANK F_INFK F_TLK _UNPACK_k_to_K 
+  _UNPACK_k_to_K_Unary _UNPACK_j_to_L _PACK_K_to_k _PACK_K_to_k_Unary F_NORMK 
+  _FMUL_K_is_K_times_L _FDIV_K_is_L_div_K _F_LONGK _F_FLOATK _FCMP_k_rel_j 
+  _FMUL_Common _FDIV_Common _FMUL_RC _FDIV_RC _FSTRUNC _FCMP_RC _FUFLOAT D_TLK 
+  D_TKRes D_XGKL D_CLRK D_CLRK_Unary D_NANK D_INFK D_INFK_Unary _DUNPACK_k_to_K 
+  _DUNPACK_k_to_K_Unary _DUNPACK_j_to_L _DPACK_K_to_k _DPACK_K_to_k_Unary 
+  D_NORMK_Unary D_NORMK _DADD_K_is_K_plus_L _DMUL_K_is_K_times_L _DCMP_k_rel_j 
+  _D_FLOATK _D_LONGK _D_FTODK _DADD_Common _DSUB_Common _DMUL_Common _DADD 
+  _DADD_RC _DSUB _DMUL _DMUL_RC _DCMP_RC _DNEG _DUFLOAT _DSTRUNC _DLONG 
 SECTION: ".bss"
   temp2 pbuf 
 SECTION: ".init"
@@ -548,11 +551,12 @@ SECTION: ".init"
 SECTION: ".rodata"
   pow10 pow16 pow8 fpow10 fpow_10 
 SECTION: ".rodata1"
-  STRING.XOXOXOXOXOXOXOXO.3 STRING..Delta..4 STRING..Gamma..5 STRING..i.6 
+  STRING.XOXOXOXOXOXOXOXO.3 STRING..Alfa..4 STRING..Gamma..5 STRING..i.6 
   STRING...7 STRING...8 STRING..i.9 STRING...10 STRING...11 
   STRING.......FUEGO..12 STRING..............13 
 SECTION: ".common"
-  temperature joystick_X joystick_Y SW solar_panel temporal_var alfa gamma 
+  temperature joystick_X joystick_Y SW solar_panel temporal_var counter alfa 
+  gamma 
 SECTION: ".abs_section_0"
   _PTAD 
 SECTION: ".abs_section_1"
@@ -890,13 +894,13 @@ OBJECT LIST SORTED BY ADDRESS
      _SCI1S2                                     3D       1       1       0   .abs_section_3d
      _SCI1C3                                     3E       1       1       0   .abs_section_3e
      _SCI1D                                      3F       1       1       0   .abs_section_3f
-     _SCI2BD                                     40       2       2       0   .abs_section_40
+     _SCI2BD                                     40       2       2       1   .abs_section_40
      _SCI2C1                                     42       1       1       0   .abs_section_42
-     _SCI2C2                                     43       1       1       0   .abs_section_43
-     _SCI2S1                                     44       1       1       0   .abs_section_44
+     _SCI2C2                                     43       1       1       1   .abs_section_43
+     _SCI2S1                                     44       1       1       3   .abs_section_44
      _SCI2S2                                     45       1       1       0   .abs_section_45
      _SCI2C3                                     46       1       1       0   .abs_section_46
-     _SCI2D                                      47       1       1       0   .abs_section_47
+     _SCI2D                                      47       1       1       3   .abs_section_47
      _MCGC1                                      48       1       1       0   .abs_section_48
      _MCGC2                                      49       1       1       0   .abs_section_49
      _MCGTRM                                     4A       1       1       0   .abs_section_4a
@@ -958,8 +962,9 @@ OBJECT LIST SORTED BY ADDRESS
      SW                                         119       4       4       4   .common     
      solar_panel                                11D       4       4       4   .common     
      temporal_var                               121       1       1       1   .common     
-     alfa                                       122       2       2       6   .common     
-     gamma                                      124       2       2       6   .common     
+     counter                                    122       1       1       3   .common     
+     alfa                                       123       2       2       7   .common     
+     gamma                                      125       2       2       7   .common     
      _SRS                                      1800       1       1       0   .abs_section_1800
      _SBDFR                                    1801       1       1       0   .abs_section_1801
      _SOPT1                                    1802       1       1       1   .abs_section_1802
@@ -1009,124 +1014,126 @@ OBJECT LIST SORTED BY ADDRESS
      fpow10                                    C10A      60      96       1   .rodata     
      fpow_10                                   C16A      60      96       1   .rodata     
      STRING.XOXOXOXOXOXOXOXO.3                 C1CA      11      17       1   .rodata1    
-     STRING..Delta..4                          C1DB       8       8       1   .rodata1    
-     STRING..Gamma..5                          C1E3       8       8       1   .rodata1    
-     STRING..i.6                               C1EB       3       3       1   .rodata1    
-     STRING...7                                C1EE       2       2       1   .rodata1    
-     STRING...8                                C1F0       2       2       1   .rodata1    
-     STRING..i.9                               C1F2       3       3       1   .rodata1    
-     STRING...10                               C1F5       2       2       1   .rodata1    
-     STRING...11                               C1F7       2       2       1   .rodata1    
-     STRING.......FUEGO..12                    C1F9       D      13       1   .rodata1    
-     STRING..............13                    C206       D      13       1   .rodata1    
-     main                                      C213      17      23       1   .text       
-     mcu_config                                C22A       9       9       1   .text       
-     init_PWM                                  C233      12      18       1   .text       
-     init_ADC                                  C245       9       9       1   .text       
-     glcd_init                                 C24E      3C      60       1   .text       
-     glcd_instruction                          C28A      12      18      10   .text       
-     glcd_data                                 C29C      12      18       2   .text       
-     glcd_message                              C2AE      2B      43      10   .text       
-     delayAx5ms                                C2D9      1B      27       7   .text       
-     sampling_ADC                              C2F4      FD     253       1   .text       
-     show_data                                 C3F1      5C      92       1   .text       
-     decision_data                             C44D     10F     271       2   .text       
-     frexp                                     C55C      5E      94       1   .text       
-     Ten                                       C5BA      F2     242       7   .text       
-     vprintf                                   C6AC     CC5    3269      99   .text       
-     _out                                      D371       D      13      14   .text       
-     deposit_char                              D37E      15      21       1   .text       
-     sprintf                                   D393      3B      59       2   .text       
-     _PUSH_ARGS_L                              D3CE      20      32       3   .text       
-     _PUSH_ARGS_D                              D3EE      33      51       2   .text       
-     _ENTER_UNARY_L                            D421      29      41       3   .text       
-     _ENTER_UNARY_L64                          D44A      3D      61       2   .text       
-     _ENTER_UNARY_L64_4                        D487      29      41       2   .text       
-     _ENTER_BINARY_L                           D4B0      16      22       2   .text       
-     _ENTER_BINARY_L_RC                        D4C6      19      25       4   .text       
-     _ENTER_BINARY_L_LC                        D4DF      1A      26       1   .text       
-     _ENTER_BINARY_L64                         D4F9      17      23       3   .text       
-     _ENTER_BINARY_L64_RC                      D510      13      19       3   .text       
-     _IDIVMOD                                  D523      69     105       1   .text       
-     _SPLITSIGN                                D58C      1C      28       2   .text       
-     _LSUB_k_is_k_minus_j                      D5A8      1F      31       1   .text       
-     _LDIVMOD                                  D5C7      A4     164       2   .text       
-     _NEG_L_HX                                 D66B      13      19       2   .text       
-     _LMODU_k_is_k_mod_j                       D67E       B      11       1   .text       
-     _LDIVU_k_is_k_div_j                       D689      17      23       1   .text       
-     _LCMP_k_rel_j                             D6A0      1F      31       1   .text       
-     _IMUL_STAR08                              D6BF      27      39       3   .text       
-     _IDIVS_STAR08                             D6E6      1B      27       2   .text       
-     _IMODS_STAR08                             D701      25      37       2   .text       
-     _LNEG                                     D726      1C      28       1   .text       
-     _LSUB                                     D742       6       6       3   .text       
-     _LDIVU_RC                                 D748       6       6       1   .text       
-     _LMODU_RC                                 D74E       6       6       1   .text       
-     _LCMP                                     D754       6       6       7   .text       
-     _COPY                                     D75A      30      48       9   .text       
-     _POP32                                    D78A      1A      26      24   .text       
-     _POP64                                    D7A4      2E      46      16   .text       
-     _SEXT16_32                                D7D2       D      13       2   .text       
-     _Jump_Table_Addr                          D7DF      16      22       2   .text       
-     _Search_Table_8_Addr                      D7F5      21      33       1   .text       
-     _Search_Table_8_Offset                    D816      25      37       1   .text       
-     F_CLRK                                    D83B       6       6       3   .text       
-     F_CLRK_Unary                              D841       6       6       1   .text       
-     F_NANK                                    D847       6       6       2   .text       
-     F_INFK                                    D84D       6       6       3   .text       
-     F_TLK                                     D853      1E      30       1   .text       
-     _UNPACK_k_to_K                            D871      58      88       2   .text       
-     _UNPACK_k_to_K_Unary                      D8C9      58      88       1   .text       
-     _UNPACK_j_to_L                            D921      58      88       2   .text       
-     _PACK_K_to_k                              D979      63      99       2   .text       
-     _PACK_K_to_k_Unary                        D9DC      4F      79       1   .text       
-     F_NORMK                                   DA2B      43      67       2   .text       
-     _FMUL_K_is_K_times_L                      DA6E      88     136       1   .text       
-     _FDIV_K_is_L_div_K                        DAF6      B5     181       1   .text       
-     _F_LONGK                                  DBAB      5A      90       1   .text       
-     _F_FLOATK                                 DC05      2E      46       1   .text       
-     _FCMP_k_rel_j                             DC33      2C      44       1   .text       
-     _FMUL_Common                              DC5F       F      15       1   .text       
-     _FDIV_Common                              DC6E       F      15       1   .text       
-     _FMUL_RC                                  DC7D       7       7       7   .text       
-     _FDIV_RC                                  DC84       7       7       5   .text       
-     _FSTRUNC                                  DC8B       B      11       1   .text       
-     _FCMP_RC                                  DC96       6       6       4   .text       
-     _FUFLOAT                                  DC9C       B      11       5   .text       
-     D_TLK                                     DCA7      23      35       2   .text       
-     D_TKRes                                   DCCA      11      17       1   .text       
-     D_XGKL                                    DCDB      34      52       1   .text       
-     D_CLRK                                    DD0F       6       6       3   .text       
-     D_CLRK_Unary                              DD15       6       6       3   .text       
-     D_NANK                                    DD1B       6       6       2   .text       
-     D_INFK                                    DD21       6       6       2   .text       
-     D_INFK_Unary                              DD27       6       6       1   .text       
-     _DUNPACK_k_to_K                           DD2D      89     137       2   .text       
-     _DUNPACK_k_to_K_Unary                     DDB6      89     137       1   .text       
-     _DUNPACK_j_to_L                           DE3F      89     137       2   .text       
-     _DPACK_K_to_k                             DEC8      A6     166       2   .text       
-     _DPACK_K_to_k_Unary                       DF6E      75     117       2   .text       
-     D_NORMK_Unary                             DFE3      6C     108       1   .text       
-     D_NORMK                                   E04F      6C     108       3   .text       
-     _DADD_K_is_K_plus_L                       E0BB      DF     223       1   .text       
-     _DMUL_K_is_K_times_L                      E19A      98     152       1   .text       
-     _DCMP_k_rel_j                             E232      2C      44       1   .text       
-     _D_FLOATK                                 E25E      45      69       1   .text       
-     _D_LONGK                                  E2A3      5B      91       1   .text       
-     _D_FTODK                                  E2FE      2A      42       1   .text       
-     _DADD_Common                              E328       C      12       3   .text       
-     _DSUB_Common                              E334       9       9       1   .text       
-     _DMUL_Common                              E33D       C      12       2   .text       
-     _DADD                                     E349       7       7       2   .text       
-     _DADD_RC                                  E350       7       7       1   .text       
-     _DSUB                                     E357       7       7       2   .text       
-     _DMUL                                     E35E       7       7       8   .text       
-     _DMUL_RC                                  E365       7       7       5   .text       
-     _DCMP_RC                                  E36C       6       6       3   .text       
-     _DNEG                                     E372      20      32       1   .text       
-     _DUFLOAT                                  E392       B      11       2   .text       
-     _DSTRUNC                                  E39D       B      11       7   .text       
-     _DLONG                                    E3A8       C      12       2   .text       
+     STRING..Alfa..4                           C1DB       7       7       1   .rodata1    
+     STRING..Gamma..5                          C1E2       8       8       1   .rodata1    
+     STRING..i.6                               C1EA       3       3       1   .rodata1    
+     STRING...7                                C1ED       2       2       1   .rodata1    
+     STRING...8                                C1EF       2       2       1   .rodata1    
+     STRING..i.9                               C1F1       3       3       1   .rodata1    
+     STRING...10                               C1F4       2       2       1   .rodata1    
+     STRING...11                               C1F6       2       2       1   .rodata1    
+     STRING.......FUEGO..12                    C1F8       D      13       1   .rodata1    
+     STRING..............13                    C205       D      13       1   .rodata1    
+     main                                      C212      1A      26       1   .text       
+     mcu_config                                C22C       9       9       1   .text       
+     init_PWM                                  C235      12      18       1   .text       
+     init_ADC                                  C247       9       9       1   .text       
+     glcd_init                                 C250      3C      60       1   .text       
+     init_SCI                                  C28C       8       8       1   .text       
+     glcd_instruction                          C294      12      18      10   .text       
+     glcd_data                                 C2A6      12      18       2   .text       
+     glcd_message                              C2B8      2B      43      10   .text       
+     delayAx5ms                                C2E3      1B      27       7   .text       
+     sampling_ADC                              C2FE      FD     253       1   .text       
+     show_data                                 C3FB      5C      92       1   .text       
+     decision_data                             C457     112     274       2   .text       
+     send_coordinates                          C569      30      48       1   .text       
+     frexp                                     C599      5E      94       1   .text       
+     Ten                                       C5F7      F2     242       7   .text       
+     vprintf                                   C6E9     CC5    3269      99   .text       
+     _out                                      D3AE       D      13      14   .text       
+     deposit_char                              D3BB      15      21       1   .text       
+     sprintf                                   D3D0      3B      59       2   .text       
+     _PUSH_ARGS_L                              D40B      20      32       3   .text       
+     _PUSH_ARGS_D                              D42B      33      51       2   .text       
+     _ENTER_UNARY_L                            D45E      29      41       3   .text       
+     _ENTER_UNARY_L64                          D487      3D      61       2   .text       
+     _ENTER_UNARY_L64_4                        D4C4      29      41       2   .text       
+     _ENTER_BINARY_L                           D4ED      16      22       2   .text       
+     _ENTER_BINARY_L_RC                        D503      19      25       4   .text       
+     _ENTER_BINARY_L_LC                        D51C      1A      26       1   .text       
+     _ENTER_BINARY_L64                         D536      17      23       3   .text       
+     _ENTER_BINARY_L64_RC                      D54D      13      19       3   .text       
+     _IDIVMOD                                  D560      69     105       1   .text       
+     _SPLITSIGN                                D5C9      1C      28       2   .text       
+     _LSUB_k_is_k_minus_j                      D5E5      1F      31       1   .text       
+     _LDIVMOD                                  D604      A4     164       2   .text       
+     _NEG_L_HX                                 D6A8      13      19       2   .text       
+     _LMODU_k_is_k_mod_j                       D6BB       B      11       1   .text       
+     _LDIVU_k_is_k_div_j                       D6C6      17      23       1   .text       
+     _LCMP_k_rel_j                             D6DD      1F      31       1   .text       
+     _IMUL_STAR08                              D6FC      27      39       3   .text       
+     _IDIVS_STAR08                             D723      1B      27       3   .text       
+     _IMODS_STAR08                             D73E      25      37       2   .text       
+     _LNEG                                     D763      1C      28       1   .text       
+     _LSUB                                     D77F       6       6       3   .text       
+     _LDIVU_RC                                 D785       6       6       1   .text       
+     _LMODU_RC                                 D78B       6       6       1   .text       
+     _LCMP                                     D791       6       6       7   .text       
+     _COPY                                     D797      30      48       9   .text       
+     _POP32                                    D7C7      1A      26      24   .text       
+     _POP64                                    D7E1      2E      46      16   .text       
+     _SEXT16_32                                D80F       D      13       2   .text       
+     _Jump_Table_Addr                          D81C      16      22       2   .text       
+     _Search_Table_8_Addr                      D832      21      33       1   .text       
+     _Search_Table_8_Offset                    D853      25      37       1   .text       
+     F_CLRK                                    D878       6       6       3   .text       
+     F_CLRK_Unary                              D87E       6       6       1   .text       
+     F_NANK                                    D884       6       6       2   .text       
+     F_INFK                                    D88A       6       6       3   .text       
+     F_TLK                                     D890      1E      30       1   .text       
+     _UNPACK_k_to_K                            D8AE      58      88       2   .text       
+     _UNPACK_k_to_K_Unary                      D906      58      88       1   .text       
+     _UNPACK_j_to_L                            D95E      58      88       2   .text       
+     _PACK_K_to_k                              D9B6      63      99       2   .text       
+     _PACK_K_to_k_Unary                        DA19      4F      79       1   .text       
+     F_NORMK                                   DA68      43      67       2   .text       
+     _FMUL_K_is_K_times_L                      DAAB      88     136       1   .text       
+     _FDIV_K_is_L_div_K                        DB33      B5     181       1   .text       
+     _F_LONGK                                  DBE8      5A      90       1   .text       
+     _F_FLOATK                                 DC42      2E      46       1   .text       
+     _FCMP_k_rel_j                             DC70      2C      44       1   .text       
+     _FMUL_Common                              DC9C       F      15       1   .text       
+     _FDIV_Common                              DCAB       F      15       1   .text       
+     _FMUL_RC                                  DCBA       7       7       7   .text       
+     _FDIV_RC                                  DCC1       7       7       5   .text       
+     _FSTRUNC                                  DCC8       B      11       1   .text       
+     _FCMP_RC                                  DCD3       6       6       4   .text       
+     _FUFLOAT                                  DCD9       B      11       5   .text       
+     D_TLK                                     DCE4      23      35       2   .text       
+     D_TKRes                                   DD07      11      17       1   .text       
+     D_XGKL                                    DD18      34      52       1   .text       
+     D_CLRK                                    DD4C       6       6       3   .text       
+     D_CLRK_Unary                              DD52       6       6       3   .text       
+     D_NANK                                    DD58       6       6       2   .text       
+     D_INFK                                    DD5E       6       6       2   .text       
+     D_INFK_Unary                              DD64       6       6       1   .text       
+     _DUNPACK_k_to_K                           DD6A      89     137       2   .text       
+     _DUNPACK_k_to_K_Unary                     DDF3      89     137       1   .text       
+     _DUNPACK_j_to_L                           DE7C      89     137       2   .text       
+     _DPACK_K_to_k                             DF05      A6     166       2   .text       
+     _DPACK_K_to_k_Unary                       DFAB      75     117       2   .text       
+     D_NORMK_Unary                             E020      6C     108       1   .text       
+     D_NORMK                                   E08C      6C     108       3   .text       
+     _DADD_K_is_K_plus_L                       E0F8      DF     223       1   .text       
+     _DMUL_K_is_K_times_L                      E1D7      98     152       1   .text       
+     _DCMP_k_rel_j                             E26F      2C      44       1   .text       
+     _D_FLOATK                                 E29B      45      69       1   .text       
+     _D_LONGK                                  E2E0      5B      91       1   .text       
+     _D_FTODK                                  E33B      2A      42       1   .text       
+     _DADD_Common                              E365       C      12       3   .text       
+     _DSUB_Common                              E371       9       9       1   .text       
+     _DMUL_Common                              E37A       C      12       2   .text       
+     _DADD                                     E386       7       7       2   .text       
+     _DADD_RC                                  E38D       7       7       1   .text       
+     _DSUB                                     E394       7       7       2   .text       
+     _DMUL                                     E39B       7       7       8   .text       
+     _DMUL_RC                                  E3A2       7       7       5   .text       
+     _DCMP_RC                                  E3A9       6       6       3   .text       
+     _DNEG                                     E3AF      20      32       1   .text       
+     _DUFLOAT                                  E3CF       B      11       2   .text       
+     _DSTRUNC                                  E3DA       B      11       7   .text       
+     _DLONG                                    E3E5       C      12       2   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -1162,7 +1169,7 @@ rtshc08.o (ansis.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xE3B4 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xE3F1 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -1171,13 +1178,14 @@ OBJECT-DEPENDENCIES SECTION
 ---------------------------------------------------------------------------------------------
 Init                      USES _startupData loadByte 
 _Startup                  USES __SEG_END_SSTACK Init main 
-main                      USES mcu_config init_ADC init_PWM glcd_init 
+main                      USES mcu_config init_ADC init_PWM init_SCI glcd_init 
                                 sampling_ADC decision_data show_data 
 mcu_config                USES _SOPT1 _PTCDD _PTCD 
 init_PWM                  USES _TPM1SC _TPM1MOD _TPM1C2SC _TPM1C2V 
 init_ADC                  USES _ADCCFG _APCTL1 _ADCSC1 
 glcd_init                 USES _PTEDD _PTFDD delayAx5ms glcd_instruction 
-                                STRING.XOXOXOXOXOXOXOXO.3 glcd_message STRING..Delta..4 STRING..Gamma..5 
+                                STRING.XOXOXOXOXOXOXOXO.3 glcd_message STRING..Alfa..4 STRING..Gamma..5 
+init_SCI                  USES _SCI2BD _SCI2C2 
 glcd_instruction          USES _PTFD _PTED delayAx5ms 
 glcd_data                 USES _PTFD _PTED delayAx5ms 
 glcd_message              USES glcd_data 
@@ -1190,7 +1198,8 @@ decision_data             USES solar_panel _FMUL_RC _FSTRUNC temporal_var
                                 _TPM1C2V temperature _FCMP_RC _PTCD joystick_Y alfa 
                                 _DLONG decision_data joystick_X gamma SW 
                                 glcd_instruction STRING.......FUEGO..12 glcd_message delayAx5ms 
-                                STRING..............13 _DCMP_RC 
+                                send_coordinates STRING..............13 _DCMP_RC 
+send_coordinates          USES counter _SCI2D _SCI2S1 alfa _IDIVS_STAR08 gamma 
 frexp                     USES _COPY 
 Ten                       USES fpow10 fpow_10 Ten _COPY _DMUL _POP64 
 vprintf                   USES _out vprintf _Search_Table_8_Offset 
@@ -1268,6 +1277,8 @@ DEPENDENCY TREE
  |  +- init_ADC            
  |  |    
  |  +- init_PWM            
+ |  |    
+ |  +- init_SCI            
  |  |    
  |  +- glcd_init           
  |  |  | 
@@ -1391,6 +1402,14 @@ DEPENDENCY TREE
  |  |  |  
  |  |  +- delayAx5ms           (see above)
  |  |  |  
+ |  |  +- send_coordinates    
+ |  |  |  | 
+ |  |  |  +- _IDIVS_STAR08       
+ |  |  |     | 
+ |  |  |     +- _SPLITSIGN          
+ |  |  |        | 
+ |  |  |        +- _IDIVMOD            
+ |  |  |             
  |  |  +- _DCMP_RC            
  |  |     | 
  |  |     +- _ENTER_BINARY_L64_RC
@@ -1555,12 +1574,8 @@ DEPENDENCY TREE
  |     |     |  |  
  |     |     |  +- _POP64               (see above)
  |     |     |     
- |     |     +- _IDIVS_STAR08       
- |     |     |  | 
- |     |     |  +- _SPLITSIGN          
- |     |     |     | 
- |     |     |     +- _IDIVMOD            
- |     |     |          
+ |     |     +- _IDIVS_STAR08        (see above)
+ |     |     |  
  |     |     +- _IMODS_STAR08       
  |     |     |  | 
  |     |     |  +- _SPLITSIGN           (see above)
@@ -1601,6 +1616,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 5
-Total size of all blocks to be downloaded: 9144
+Number of blocks to be downloaded: 4
+Total size of all blocks to be downloaded: 9205
 
