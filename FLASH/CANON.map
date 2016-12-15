@@ -1,0 +1,1577 @@
+*** EVALUATION ***
+PROGRAM "CANON.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.51 Build 14019, Jan 20 2014
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main_c.obj                              Model: SMALL,         Lang: ANSI-C
+start08_c.obj                           Model: SMALL,         Lang: ANSI-C
+mc9s08jm16_c.obj                        Model: SMALL,         Lang: ANSI-C
+math08d.o (ansis.lib)                   Model: SMALL,         Lang: ANSI-C
+printf.o (ansis.lib)                    Model: SMALL,         Lang: ANSI-C
+rtshc08.o (ansis.lib)                   Model: SMALL,         Lang: ANSI-C
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC07B (_Startup)
+_startupData is allocated at 0xC084 and uses 6 Bytes
+extern struct _tagStartup {
+  unsigned nofZeroOut     1
+  _Range   pZeroOut       0x100     42
+  _Copy    *toCopyDownBeg 0xE273
+} _startupData;
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            132     R     0xC000     0xC083   ROM
+.startData                        18     R     0xC084     0xC095   ROM
+.rodata                          308     R     0xC096     0xC1C9   ROM
+.rodata1                          27     R     0xC1CA     0xC1E4   ROM
+.text                           8334     R     0xC1E5     0xE272   ROM
+.copy                              2     R     0xE273     0xE274   ROM
+.abs_section_0                     1   N/I        0x0        0x0   .absSeg0
+.abs_section_1                     1   N/I        0x1        0x1   .absSeg1
+.abs_section_2                     1   N/I        0x2        0x2   .absSeg2
+.abs_section_3                     1   N/I        0x3        0x3   .absSeg3
+.abs_section_4                     1   N/I        0x4        0x4   .absSeg4
+.abs_section_5                     1   N/I        0x5        0x5   .absSeg5
+.abs_section_6                     1   N/I        0x6        0x6   .absSeg6
+.abs_section_7                     1   N/I        0x7        0x7   .absSeg7
+.abs_section_8                     1   N/I        0x8        0x8   .absSeg8
+.abs_section_9                     1   N/I        0x9        0x9   .absSeg9
+.abs_section_a                     1   N/I        0xA        0xA   .absSeg10
+.abs_section_b                     1   N/I        0xB        0xB   .absSeg11
+.abs_section_c                     1   N/I        0xC        0xC   .absSeg12
+.abs_section_d                     1   N/I        0xD        0xD   .absSeg13
+.abs_section_e                     1   N/I        0xE        0xE   .absSeg14
+.abs_section_10                    1   N/I       0x10       0x10   .absSeg15
+.abs_section_11                    1   N/I       0x11       0x11   .absSeg16
+.abs_section_16                    1   N/I       0x16       0x16   .absSeg17
+.abs_section_17                    1   N/I       0x17       0x17   .absSeg18
+.abs_section_18                    1   N/I       0x18       0x18   .absSeg19
+.abs_section_1b                    1   N/I       0x1B       0x1B   .absSeg20
+.abs_section_1c                    1   N/I       0x1C       0x1C   .absSeg21
+.abs_section_1d                    1   N/I       0x1D       0x1D   .absSeg22
+.abs_section_1e                    1   N/I       0x1E       0x1E   .absSeg23
+.abs_section_20                    1   N/I       0x20       0x20   .absSeg24
+.abs_section_25                    1   N/I       0x25       0x25   .absSeg25
+.abs_section_28                    1   N/I       0x28       0x28   .absSeg26
+.abs_section_2b                    1   N/I       0x2B       0x2B   .absSeg27
+.abs_section_2e                    1   N/I       0x2E       0x2E   .absSeg28
+.abs_section_3a                    1   N/I       0x3A       0x3A   .absSeg29
+.abs_section_3b                    1   N/I       0x3B       0x3B   .absSeg30
+.abs_section_3c                    1   N/I       0x3C       0x3C   .absSeg31
+.abs_section_3d                    1   N/I       0x3D       0x3D   .absSeg32
+.abs_section_3e                    1   N/I       0x3E       0x3E   .absSeg33
+.abs_section_3f                    1   N/I       0x3F       0x3F   .absSeg34
+.abs_section_42                    1   N/I       0x42       0x42   .absSeg35
+.abs_section_43                    1   N/I       0x43       0x43   .absSeg36
+.abs_section_44                    1   N/I       0x44       0x44   .absSeg37
+.abs_section_45                    1   N/I       0x45       0x45   .absSeg38
+.abs_section_46                    1   N/I       0x46       0x46   .absSeg39
+.abs_section_47                    1   N/I       0x47       0x47   .absSeg40
+.abs_section_48                    1   N/I       0x48       0x48   .absSeg41
+.abs_section_49                    1   N/I       0x49       0x49   .absSeg42
+.abs_section_4a                    1   N/I       0x4A       0x4A   .absSeg43
+.abs_section_4b                    1   N/I       0x4B       0x4B   .absSeg44
+.abs_section_4c                    1   N/I       0x4C       0x4C   .absSeg45
+.abs_section_50                    1   N/I       0x50       0x50   .absSeg46
+.abs_section_51                    1   N/I       0x51       0x51   .absSeg47
+.abs_section_52                    1   N/I       0x52       0x52   .absSeg48
+.abs_section_53                    1   N/I       0x53       0x53   .absSeg49
+.abs_section_58                    1   N/I       0x58       0x58   .absSeg50
+.abs_section_59                    1   N/I       0x59       0x59   .absSeg51
+.abs_section_5a                    1   N/I       0x5A       0x5A   .absSeg52
+.abs_section_5b                    1   N/I       0x5B       0x5B   .absSeg53
+.abs_section_5c                    1   N/I       0x5C       0x5C   .absSeg54
+.abs_section_5d                    1   N/I       0x5D       0x5D   .absSeg55
+.abs_section_60                    1   N/I       0x60       0x60   .absSeg56
+.abs_section_65                    1   N/I       0x65       0x65   .absSeg57
+.abs_section_68                    1   N/I       0x68       0x68   .absSeg58
+.abs_section_6c                    1   N/I       0x6C       0x6C   .absSeg59
+.abs_section_6d                    1   N/I       0x6D       0x6D   .absSeg60
+.abs_section_6e                    1   N/I       0x6E       0x6E   .absSeg61
+.abs_section_70                    1   N/I       0x70       0x70   .absSeg62
+.abs_section_71                    1   N/I       0x71       0x71   .absSeg63
+.abs_section_72                    1   N/I       0x72       0x72   .absSeg64
+.abs_section_73                    1   N/I       0x73       0x73   .absSeg65
+.abs_section_80                    1   N/I       0x80       0x80   .absSeg66
+.abs_section_88                    1   N/I       0x88       0x88   .absSeg67
+.abs_section_89                    1   N/I       0x89       0x89   .absSeg68
+.abs_section_8a                    1   N/I       0x8A       0x8A   .absSeg69
+.abs_section_90                    1   N/I       0x90       0x90   .absSeg70
+.abs_section_91                    1   N/I       0x91       0x91   .absSeg71
+.abs_section_92                    1   N/I       0x92       0x92   .absSeg72
+.abs_section_93                    1   N/I       0x93       0x93   .absSeg73
+.abs_section_94                    1   N/I       0x94       0x94   .absSeg74
+.abs_section_95                    1   N/I       0x95       0x95   .absSeg75
+.abs_section_96                    1   N/I       0x96       0x96   .absSeg76
+.abs_section_97                    1   N/I       0x97       0x97   .absSeg77
+.abs_section_98                    1   N/I       0x98       0x98   .absSeg78
+.abs_section_9d                    1   N/I       0x9D       0x9D   .absSeg79
+.abs_section_9e                    1   N/I       0x9E       0x9E   .absSeg80
+.abs_section_9f                    1   N/I       0x9F       0x9F   .absSeg81
+.abs_section_a0                    1   N/I       0xA0       0xA0   .absSeg82
+.abs_section_a1                    1   N/I       0xA1       0xA1   .absSeg83
+.abs_section_a2                    1   N/I       0xA2       0xA2   .absSeg84
+.abs_section_a3                    1   N/I       0xA3       0xA3   .absSeg85
+.abs_section_1800                  1   N/I     0x1800     0x1800   .absSeg86
+.abs_section_1801                  1   N/I     0x1801     0x1801   .absSeg87
+.abs_section_1802                  1   N/I     0x1802     0x1802   .absSeg88
+.abs_section_1803                  1   N/I     0x1803     0x1803   .absSeg89
+.abs_section_1809                  1   N/I     0x1809     0x1809   .absSeg90
+.abs_section_180a                  1   N/I     0x180A     0x180A   .absSeg91
+.abs_section_1816                  1   N/I     0x1816     0x1816   .absSeg92
+.abs_section_1817                  1   N/I     0x1817     0x1817   .absSeg93
+.abs_section_1818                  1   N/I     0x1818     0x1818   .absSeg94
+.abs_section_1820                  1   N/I     0x1820     0x1820   .absSeg95
+.abs_section_1821                  1   N/I     0x1821     0x1821   .absSeg96
+.abs_section_1823                  1   N/I     0x1823     0x1823   .absSeg97
+.abs_section_1824                  1   N/I     0x1824     0x1824   .absSeg98
+.abs_section_1825                  1   N/I     0x1825     0x1825   .absSeg99
+.abs_section_1826                  1   N/I     0x1826     0x1826   .absSeg100
+.abs_section_1840                  1   N/I     0x1840     0x1840   .absSeg101
+.abs_section_1841                  1   N/I     0x1841     0x1841   .absSeg102
+.abs_section_1842                  1   N/I     0x1842     0x1842   .absSeg103
+.abs_section_1844                  1   N/I     0x1844     0x1844   .absSeg104
+.abs_section_1845                  1   N/I     0x1845     0x1845   .absSeg105
+.abs_section_1846                  1   N/I     0x1846     0x1846   .absSeg106
+.abs_section_1848                  1   N/I     0x1848     0x1848   .absSeg107
+.abs_section_1849                  1   N/I     0x1849     0x1849   .absSeg108
+.abs_section_184a                  1   N/I     0x184A     0x184A   .absSeg109
+.abs_section_184c                  1   N/I     0x184C     0x184C   .absSeg110
+.abs_section_184d                  1   N/I     0x184D     0x184D   .absSeg111
+.abs_section_184e                  1   N/I     0x184E     0x184E   .absSeg112
+.abs_section_1850                  1   N/I     0x1850     0x1850   .absSeg113
+.abs_section_1851                  1   N/I     0x1851     0x1851   .absSeg114
+.abs_section_1852                  1   N/I     0x1852     0x1852   .absSeg115
+.abs_section_1854                  1   N/I     0x1854     0x1854   .absSeg116
+.abs_section_1855                  1   N/I     0x1855     0x1855   .absSeg117
+.abs_section_1856                  1   N/I     0x1856     0x1856   .absSeg118
+.abs_section_1858                  1   N/I     0x1858     0x1858   .absSeg119
+.abs_section_1859                  1   N/I     0x1859     0x1859   .absSeg120
+.abs_section_185a                  1   N/I     0x185A     0x185A   .absSeg121
+.abs_section_12                    2   N/I       0x12       0x13   .absSeg122
+.abs_section_14                    2   N/I       0x14       0x15   .absSeg123
+.abs_section_21                    2   N/I       0x21       0x22   .absSeg124
+.abs_section_23                    2   N/I       0x23       0x24   .absSeg125
+.abs_section_26                    2   N/I       0x26       0x27   .absSeg126
+.abs_section_29                    2   N/I       0x29       0x2A   .absSeg127
+.abs_section_2c                    2   N/I       0x2C       0x2D   .absSeg128
+.abs_section_2f                    2   N/I       0x2F       0x30   .absSeg129
+.abs_section_38                    2   N/I       0x38       0x39   .absSeg130
+.abs_section_40                    2   N/I       0x40       0x41   .absSeg131
+.abs_section_54                    2   N/I       0x54       0x55   .absSeg132
+.abs_section_56                    2   N/I       0x56       0x57   .absSeg133
+.abs_section_61                    2   N/I       0x61       0x62   .absSeg134
+.abs_section_63                    2   N/I       0x63       0x64   .absSeg135
+.abs_section_66                    2   N/I       0x66       0x67   .absSeg136
+.abs_section_69                    2   N/I       0x69       0x6A   .absSeg137
+.abs_section_74                    2   N/I       0x74       0x75   .absSeg138
+.abs_section_76                    2   N/I       0x76       0x77   .absSeg139
+.abs_section_1806                  2   N/I     0x1806     0x1807   .absSeg140
+.abs_section_1810                  2   N/I     0x1810     0x1811   .absSeg141
+.abs_section_1812                  2   N/I     0x1812     0x1813   .absSeg142
+.abs_section_1814                  2   N/I     0x1814     0x1815   .absSeg143
+.bss                              13   R/W      0x100      0x10C   RAM
+.common                           29   R/W      0x10D      0x129   RAM
+.stack                           128   R/W      0x12A      0x1A9   RAM
+.vectSeg144_vect                   2     R     0xFFFE     0xFFFF   .vectSeg144
+
+Summary of section sizes per section type:
+READ_ONLY (R):        2277 (dec:     8823)
+READ_WRITE (R/W):       AA (dec:      170)
+NO_INIT (N/I):          A6 (dec:      166)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC07B   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main_c.obj --
+- PROCEDURES:
+     main                                      C1E5      1D      29       1   .text       
+     mcu_config                                C202       9       9       1   .text       
+     init_PWM                                  C20B      12      18       1   .text       
+     init_ADC                                  C21D       9       9       1   .text       
+     glcd_init                                 C226      20      32       1   .text       
+     glcd_instruction                          C246      12      18       5   .text       
+     glcd_data                                 C258      12      18       1   .text       
+     glcd_message                              C26A      2B      43       3   .text       
+     delayAx5ms                                C295      1B      27       5   .text       
+     sampling_ADC                              C2B0      FD     253       1   .text       
+     show_data                                 C3AD      39      57       1   .text       
+     decision_data                             C3E6      35      53       1   .text       
+- VARIABLES:
+     STRING.XOXOXOXOXOXOXOXO.3                 C1CA      11      17       1   .rodata1    
+     STRING..4.3f.4                            C1DB       6       6       1   .rodata1    
+     STRING..S..5                              C1E1       4       4       1   .rodata1    
+     temp2                                      100       7       7       2   .bss        
+     temperature                                10D       4       4       4   .common     
+     joystick_X                                 111       4       4       3   .common     
+     joystick_Y                                 115       4       4       3   .common     
+     SW                                         119       4       4       3   .common     
+     solar_panel                                11D       4       4       5   .common     
+     temporal_var                               121       1       1       1   .common     
+     temporal                                   122       8       8       2   .common     
+MODULE:                 -- start08_c.obj --
+- PROCEDURES:
+     loadByte                                  C000       E      14       5   .init       
+     Init                                      C00E      6D     109       1   .init       
+     _Startup                                  C07B       9       9       0   .init       
+- VARIABLES:
+     _startupData                              C084       6       6       4   .startData  
+- LABELS:
+     __SEG_END_SSTACK                           1AA       0       0       1               
+MODULE:                 -- mc9s08jm16_c.obj --
+- PROCEDURES:
+- VARIABLES:
+     _PTAD                                        0       1       1       0   .abs_section_0
+     _PTADD                                       1       1       1       0   .abs_section_1
+     _PTBD                                        2       1       1       0   .abs_section_2
+     _PTBDD                                       3       1       1       0   .abs_section_3
+     _PTCD                                        4       1       1       3   .abs_section_4
+     _PTCDD                                       5       1       1       1   .abs_section_5
+     _PTDD                                        6       1       1       0   .abs_section_6
+     _PTDDD                                       7       1       1       0   .abs_section_7
+     _PTED                                        8       1       1       2   .abs_section_8
+     _PTEDD                                       9       1       1       1   .abs_section_9
+     _PTFD                                        A       1       1       6   .abs_section_a
+     _PTFDD                                       B       1       1       2   .abs_section_b
+     _PTGD                                        C       1       1       0   .abs_section_c
+     _PTGDD                                       D       1       1       0   .abs_section_d
+     _ACMPSC                                      E       1       1       0   .abs_section_e
+     _ADCSC1                                     10       1       1      11   .abs_section_10
+     _ADCSC2                                     11       1       1       0   .abs_section_11
+     _ADCCFG                                     16       1       1       1   .abs_section_16
+     _APCTL1                                     17       1       1       1   .abs_section_17
+     _APCTL2                                     18       1       1       0   .abs_section_18
+     _IRQSC                                      1B       1       1       0   .abs_section_1b
+     _KBISC                                      1C       1       1       0   .abs_section_1c
+     _KBIPE                                      1D       1       1       0   .abs_section_1d
+     _KBIES                                      1E       1       1       0   .abs_section_1e
+     _TPM1SC                                     20       1       1       2   .abs_section_20
+     _TPM1C0SC                                   25       1       1       0   .abs_section_25
+     _TPM1C1SC                                   28       1       1       0   .abs_section_28
+     _TPM1C2SC                                   2B       1       1       1   .abs_section_2b
+     _TPM1C3SC                                   2E       1       1       0   .abs_section_2e
+     _SCI1C1                                     3A       1       1       0   .abs_section_3a
+     _SCI1C2                                     3B       1       1       0   .abs_section_3b
+     _SCI1S1                                     3C       1       1       0   .abs_section_3c
+     _SCI1S2                                     3D       1       1       0   .abs_section_3d
+     _SCI1C3                                     3E       1       1       0   .abs_section_3e
+     _SCI1D                                      3F       1       1       0   .abs_section_3f
+     _SCI2C1                                     42       1       1       0   .abs_section_42
+     _SCI2C2                                     43       1       1       0   .abs_section_43
+     _SCI2S1                                     44       1       1       0   .abs_section_44
+     _SCI2S2                                     45       1       1       0   .abs_section_45
+     _SCI2C3                                     46       1       1       0   .abs_section_46
+     _SCI2D                                      47       1       1       0   .abs_section_47
+     _MCGC1                                      48       1       1       0   .abs_section_48
+     _MCGC2                                      49       1       1       0   .abs_section_49
+     _MCGTRM                                     4A       1       1       0   .abs_section_4a
+     _MCGSC                                      4B       1       1       0   .abs_section_4b
+     _MCGC3                                      4C       1       1       0   .abs_section_4c
+     _SPI1C1                                     50       1       1       0   .abs_section_50
+     _SPI1C2                                     51       1       1       0   .abs_section_51
+     _SPI1BR                                     52       1       1       0   .abs_section_52
+     _SPI1S                                      53       1       1       0   .abs_section_53
+     _IICA                                       58       1       1       0   .abs_section_58
+     _IICF                                       59       1       1       0   .abs_section_59
+     _IICC1                                      5A       1       1       0   .abs_section_5a
+     _IICS                                       5B       1       1       0   .abs_section_5b
+     _IICD                                       5C       1       1       0   .abs_section_5c
+     _IICC2                                      5D       1       1       0   .abs_section_5d
+     _TPM2SC                                     60       1       1       0   .abs_section_60
+     _TPM2C0SC                                   65       1       1       0   .abs_section_65
+     _TPM2C1SC                                   68       1       1       0   .abs_section_68
+     _RTCSC                                      6C       1       1       0   .abs_section_6c
+     _RTCCNT                                     6D       1       1       0   .abs_section_6d
+     _RTCMOD                                     6E       1       1       0   .abs_section_6e
+     _SPI2C1                                     70       1       1       0   .abs_section_70
+     _SPI2C2                                     71       1       1       0   .abs_section_71
+     _SPI2BR                                     72       1       1       0   .abs_section_72
+     _SPI2S                                      73       1       1       0   .abs_section_73
+     _USBCTL0                                    80       1       1       0   .abs_section_80
+     _PERID                                      88       1       1       0   .abs_section_88
+     _IDCOMP                                     89       1       1       0   .abs_section_89
+     _REV                                        8A       1       1       0   .abs_section_8a
+     _INTSTAT                                    90       1       1       0   .abs_section_90
+     _INTENB                                     91       1       1       0   .abs_section_91
+     _ERRSTAT                                    92       1       1       0   .abs_section_92
+     _ERRENB                                     93       1       1       0   .abs_section_93
+     _STAT                                       94       1       1       0   .abs_section_94
+     _CTL                                        95       1       1       0   .abs_section_95
+     _ADDR                                       96       1       1       0   .abs_section_96
+     _FRMNUML                                    97       1       1       0   .abs_section_97
+     _FRMNUMH                                    98       1       1       0   .abs_section_98
+     _EPCTL0                                     9D       1       1       0   .abs_section_9d
+     _EPCTL1                                     9E       1       1       0   .abs_section_9e
+     _EPCTL2                                     9F       1       1       0   .abs_section_9f
+     _EPCTL3                                     A0       1       1       0   .abs_section_a0
+     _EPCTL4                                     A1       1       1       0   .abs_section_a1
+     _EPCTL5                                     A2       1       1       0   .abs_section_a2
+     _EPCTL6                                     A3       1       1       0   .abs_section_a3
+     _SRS                                      1800       1       1       0   .abs_section_1800
+     _SBDFR                                    1801       1       1       0   .abs_section_1801
+     _SOPT1                                    1802       1       1       1   .abs_section_1802
+     _SOPT2                                    1803       1       1       0   .abs_section_1803
+     _SPMSC1                                   1809       1       1       0   .abs_section_1809
+     _SPMSC2                                   180A       1       1       0   .abs_section_180a
+     _DBGC                                     1816       1       1       0   .abs_section_1816
+     _DBGT                                     1817       1       1       0   .abs_section_1817
+     _DBGS                                     1818       1       1       0   .abs_section_1818
+     _FCDIV                                    1820       1       1       0   .abs_section_1820
+     _FOPT                                     1821       1       1       0   .abs_section_1821
+     _FCNFG                                    1823       1       1       0   .abs_section_1823
+     _FPROT                                    1824       1       1       0   .abs_section_1824
+     _FSTAT                                    1825       1       1       0   .abs_section_1825
+     _FCMD                                     1826       1       1       0   .abs_section_1826
+     _PTAPE                                    1840       1       1       0   .abs_section_1840
+     _PTASE                                    1841       1       1       0   .abs_section_1841
+     _PTADS                                    1842       1       1       0   .abs_section_1842
+     _PTBPE                                    1844       1       1       0   .abs_section_1844
+     _PTBSE                                    1845       1       1       0   .abs_section_1845
+     _PTBDS                                    1846       1       1       0   .abs_section_1846
+     _PTCPE                                    1848       1       1       0   .abs_section_1848
+     _PTCSE                                    1849       1       1       0   .abs_section_1849
+     _PTCDS                                    184A       1       1       0   .abs_section_184a
+     _PTDPE                                    184C       1       1       0   .abs_section_184c
+     _PTDSE                                    184D       1       1       0   .abs_section_184d
+     _PTDDS                                    184E       1       1       0   .abs_section_184e
+     _PTEPE                                    1850       1       1       0   .abs_section_1850
+     _PTESE                                    1851       1       1       0   .abs_section_1851
+     _PTEDS                                    1852       1       1       0   .abs_section_1852
+     _PTFPE                                    1854       1       1       0   .abs_section_1854
+     _PTFSE                                    1855       1       1       0   .abs_section_1855
+     _PTFDS                                    1856       1       1       0   .abs_section_1856
+     _PTGPE                                    1858       1       1       0   .abs_section_1858
+     _PTGSE                                    1859       1       1       0   .abs_section_1859
+     _PTGDS                                    185A       1       1       0   .abs_section_185a
+     _ADCR                                       12       2       2       5   .abs_section_12
+     _ADCCV                                      14       2       2       0   .abs_section_14
+     _TPM1CNT                                    21       2       2       0   .abs_section_21
+     _TPM1MOD                                    23       2       2       1   .abs_section_23
+     _TPM1C0V                                    26       2       2       0   .abs_section_26
+     _TPM1C1V                                    29       2       2       0   .abs_section_29
+     _TPM1C2V                                    2C       2       2       2   .abs_section_2c
+     _TPM1C3V                                    2F       2       2       0   .abs_section_2f
+     _SCI1BD                                     38       2       2       0   .abs_section_38
+     _SCI2BD                                     40       2       2       0   .abs_section_40
+     _SPI1D16                                    54       2       2       0   .abs_section_54
+     _SPI1M                                      56       2       2       0   .abs_section_56
+     _TPM2CNT                                    61       2       2       0   .abs_section_61
+     _TPM2MOD                                    63       2       2       0   .abs_section_63
+     _TPM2C0V                                    66       2       2       0   .abs_section_66
+     _TPM2C1V                                    69       2       2       0   .abs_section_69
+     _SPI2D16                                    74       2       2       0   .abs_section_74
+     _SPI2M                                      76       2       2       0   .abs_section_76
+     _SDID                                     1806       2       2       0   .abs_section_1806
+     _DBGCA                                    1810       2       2       0   .abs_section_1810
+     _DBGCB                                    1812       2       2       0   .abs_section_1812
+     _DBGF                                     1814       2       2       0   .abs_section_1814
+MODULE:                 -- math08d.o (ansis.lib) --
+- PROCEDURES:
+     frexp                                     C41B      5E      94       1   .text       
+- VARIABLES:
+MODULE:                 -- printf.o (ansis.lib) --
+- PROCEDURES:
+     Ten                                       C479      F2     242       7   .text       
+     vprintf                                   C56B     CC5    3269      99   .text       
+     _out                                      D230       D      13      14   .text       
+     deposit_char                              D23D      15      21       1   .text       
+     sprintf                                   D252      3B      59       1   .text       
+- VARIABLES:
+     pow10                                     C096      28      40       4   .rodata     
+     pow16                                     C0BE      20      32       4   .rodata     
+     pow8                                      C0DE      2C      44       4   .rodata     
+     fpow10                                    C10A      60      96       1   .rodata     
+     fpow_10                                   C16A      60      96       1   .rodata     
+     pbuf                                       107       6       6      14   .bss        
+MODULE:                 -- rtshc08.o (ansis.lib) --
+- PROCEDURES:
+     _PUSH_ARGS_L                              D28D      20      32       3   .text       
+     _PUSH_ARGS_D                              D2AD      33      51       2   .text       
+     _ENTER_UNARY_L                            D2E0      29      41       3   .text       
+     _ENTER_UNARY_L64                          D309      3D      61       2   .text       
+     _ENTER_UNARY_L64_4                        D346      29      41       2   .text       
+     _ENTER_BINARY_L                           D36F      16      22       2   .text       
+     _ENTER_BINARY_L_RC                        D385      19      25       4   .text       
+     _ENTER_BINARY_L_LC                        D39E      1A      26       1   .text       
+     _ENTER_BINARY_L64                         D3B8      17      23       3   .text       
+     _ENTER_BINARY_L64_RC                      D3CF      13      19       3   .text       
+     _IDIVMOD                                  D3E2      69     105       1   .text       
+     _SPLITSIGN                                D44B      1C      28       2   .text       
+     _LSUB_k_is_k_minus_j                      D467      1F      31       1   .text       
+     _LDIVMOD                                  D486      A4     164       2   .text       
+     _NEG_L_HX                                 D52A      13      19       2   .text       
+     _LMODU_k_is_k_mod_j                       D53D       B      11       1   .text       
+     _LDIVU_k_is_k_div_j                       D548      17      23       1   .text       
+     _LCMP_k_rel_j                             D55F      1F      31       1   .text       
+     _IMUL_STAR08                              D57E      27      39       3   .text       
+     _IDIVS_STAR08                             D5A5      1B      27       2   .text       
+     _IMODS_STAR08                             D5C0      25      37       2   .text       
+     _LNEG                                     D5E5      1C      28       1   .text       
+     _LSUB                                     D601       6       6       3   .text       
+     _LDIVU_RC                                 D607       6       6       1   .text       
+     _LMODU_RC                                 D60D       6       6       1   .text       
+     _LCMP                                     D613       6       6       7   .text       
+     _COPY                                     D619      30      48      10   .text       
+     _POP32                                    D649      1A      26      24   .text       
+     _POP64                                    D663      2E      46      17   .text       
+     _SEXT16_32                                D691       D      13       2   .text       
+     _Jump_Table_Addr                          D69E      16      22       2   .text       
+     _Search_Table_8_Addr                      D6B4      21      33       1   .text       
+     _Search_Table_8_Offset                    D6D5      25      37       1   .text       
+     F_CLRK                                    D6FA       6       6       3   .text       
+     F_CLRK_Unary                              D700       6       6       1   .text       
+     F_NANK                                    D706       6       6       2   .text       
+     F_INFK                                    D70C       6       6       3   .text       
+     F_TLK                                     D712      1E      30       1   .text       
+     _UNPACK_k_to_K                            D730      58      88       2   .text       
+     _UNPACK_k_to_K_Unary                      D788      58      88       1   .text       
+     _UNPACK_j_to_L                            D7E0      58      88       2   .text       
+     _PACK_K_to_k                              D838      63      99       2   .text       
+     _PACK_K_to_k_Unary                        D89B      4F      79       1   .text       
+     F_NORMK                                   D8EA      43      67       2   .text       
+     _FMUL_K_is_K_times_L                      D92D      88     136       1   .text       
+     _FDIV_K_is_L_div_K                        D9B5      B5     181       1   .text       
+     _F_LONGK                                  DA6A      5A      90       1   .text       
+     _F_FLOATK                                 DAC4      2E      46       1   .text       
+     _FCMP_k_rel_j                             DAF2      2C      44       1   .text       
+     _FMUL_Common                              DB1E       F      15       1   .text       
+     _FDIV_Common                              DB2D       F      15       1   .text       
+     _FMUL_RC                                  DB3C       7       7       7   .text       
+     _FDIV_RC                                  DB43       7       7       5   .text       
+     _FSTRUNC                                  DB4A       B      11       1   .text       
+     _FCMP_RC                                  DB55       6       6       1   .text       
+     _FUFLOAT                                  DB5B       B      11       5   .text       
+     D_TLK                                     DB66      23      35       2   .text       
+     D_TKRes                                   DB89      11      17       1   .text       
+     D_XGKL                                    DB9A      34      52       1   .text       
+     D_CLRK                                    DBCE       6       6       3   .text       
+     D_CLRK_Unary                              DBD4       6       6       3   .text       
+     D_NANK                                    DBDA       6       6       2   .text       
+     D_INFK                                    DBE0       6       6       2   .text       
+     D_INFK_Unary                              DBE6       6       6       1   .text       
+     _DUNPACK_k_to_K                           DBEC      89     137       2   .text       
+     _DUNPACK_k_to_K_Unary                     DC75      89     137       1   .text       
+     _DUNPACK_j_to_L                           DCFE      89     137       2   .text       
+     _DPACK_K_to_k                             DD87      A6     166       2   .text       
+     _DPACK_K_to_k_Unary                       DE2D      75     117       2   .text       
+     D_NORMK_Unary                             DEA2      6C     108       1   .text       
+     D_NORMK                                   DF0E      6C     108       3   .text       
+     _DADD_K_is_K_plus_L                       DF7A      DF     223       1   .text       
+     _DMUL_K_is_K_times_L                      E059      98     152       1   .text       
+     _DCMP_k_rel_j                             E0F1      2C      44       1   .text       
+     _D_FLOATK                                 E11D      45      69       1   .text       
+     _D_LONGK                                  E162      5B      91       1   .text       
+     _D_FTODK                                  E1BD      2A      42       1   .text       
+     _DADD_Common                              E1E7       C      12       3   .text       
+     _DSUB_Common                              E1F3       9       9       1   .text       
+     _DMUL_Common                              E1FC       C      12       2   .text       
+     _DADD                                     E208       7       7       2   .text       
+     _DADD_RC                                  E20F       7       7       1   .text       
+     _DSUB                                     E216       7       7       2   .text       
+     _DMUL                                     E21D       7       7       8   .text       
+     _DMUL_RC                                  E224       7       7       5   .text       
+     _DCMP_RC                                  E22B       6       6       2   .text       
+     _DNEG                                     E231      20      32       1   .text       
+     _DUFLOAT                                  E251       B      11       2   .text       
+     _DSTRUNC                                  E25C       B      11       7   .text       
+     _DLONG                                    E267       C      12       1   .text       
+- VARIABLES:
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main_c.obj                                  36    566     27
+  start08_c.obj                                0    132      0
+  mc9s08jm16_c.obj                           166      0      0
+  math08d.o (ansis.lib)                        0     94      0
+  printf.o (ansis.lib)                         6   3604    308
+  rtshc08.o (ansis.lib)                        0   4070      0
+  other                                      128     20      2
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  main mcu_config init_PWM init_ADC glcd_init glcd_instruction glcd_data 
+  glcd_message delayAx5ms sampling_ADC show_data decision_data frexp Ten 
+  vprintf _out deposit_char sprintf _PUSH_ARGS_L _PUSH_ARGS_D _ENTER_UNARY_L 
+  _ENTER_UNARY_L64 _ENTER_UNARY_L64_4 _ENTER_BINARY_L _ENTER_BINARY_L_RC 
+  _ENTER_BINARY_L_LC _ENTER_BINARY_L64 _ENTER_BINARY_L64_RC _IDIVMOD _SPLITSIGN 
+  _LSUB_k_is_k_minus_j _LDIVMOD _NEG_L_HX _LMODU_k_is_k_mod_j 
+  _LDIVU_k_is_k_div_j _LCMP_k_rel_j _IMUL_STAR08 _IDIVS_STAR08 _IMODS_STAR08 
+  _LNEG _LSUB _LDIVU_RC _LMODU_RC _LCMP _COPY _POP32 _POP64 _SEXT16_32 
+  _Jump_Table_Addr _Search_Table_8_Addr _Search_Table_8_Offset F_CLRK 
+  F_CLRK_Unary F_NANK F_INFK F_TLK _UNPACK_k_to_K _UNPACK_k_to_K_Unary 
+  _UNPACK_j_to_L _PACK_K_to_k _PACK_K_to_k_Unary F_NORMK _FMUL_K_is_K_times_L 
+  _FDIV_K_is_L_div_K _F_LONGK _F_FLOATK _FCMP_k_rel_j _FMUL_Common _FDIV_Common 
+  _FMUL_RC _FDIV_RC _FSTRUNC _FCMP_RC _FUFLOAT D_TLK D_TKRes D_XGKL D_CLRK 
+  D_CLRK_Unary D_NANK D_INFK D_INFK_Unary _DUNPACK_k_to_K _DUNPACK_k_to_K_Unary 
+  _DUNPACK_j_to_L _DPACK_K_to_k _DPACK_K_to_k_Unary D_NORMK_Unary D_NORMK 
+  _DADD_K_is_K_plus_L _DMUL_K_is_K_times_L _DCMP_k_rel_j _D_FLOATK _D_LONGK 
+  _D_FTODK _DADD_Common _DSUB_Common _DMUL_Common _DADD _DADD_RC _DSUB _DMUL 
+  _DMUL_RC _DCMP_RC _DNEG _DUFLOAT _DSTRUNC _DLONG 
+SECTION: ".bss"
+  temp2 pbuf 
+SECTION: ".init"
+  loadByte Init _Startup 
+SECTION: ".rodata"
+  pow10 pow16 pow8 fpow10 fpow_10 
+SECTION: ".rodata1"
+  STRING.XOXOXOXOXOXOXOXO.3 STRING..4.3f.4 STRING..S..5 
+SECTION: ".common"
+  temperature joystick_X joystick_Y SW solar_panel temporal_var temporal 
+SECTION: ".abs_section_0"
+  _PTAD 
+SECTION: ".abs_section_1"
+  _PTADD 
+SECTION: ".abs_section_2"
+  _PTBD 
+SECTION: ".abs_section_3"
+  _PTBDD 
+SECTION: ".abs_section_4"
+  _PTCD 
+SECTION: ".abs_section_5"
+  _PTCDD 
+SECTION: ".abs_section_6"
+  _PTDD 
+SECTION: ".abs_section_7"
+  _PTDDD 
+SECTION: ".abs_section_8"
+  _PTED 
+SECTION: ".abs_section_9"
+  _PTEDD 
+SECTION: ".abs_section_a"
+  _PTFD 
+SECTION: ".abs_section_b"
+  _PTFDD 
+SECTION: ".abs_section_c"
+  _PTGD 
+SECTION: ".abs_section_d"
+  _PTGDD 
+SECTION: ".abs_section_e"
+  _ACMPSC 
+SECTION: ".abs_section_10"
+  _ADCSC1 
+SECTION: ".abs_section_11"
+  _ADCSC2 
+SECTION: ".abs_section_16"
+  _ADCCFG 
+SECTION: ".abs_section_17"
+  _APCTL1 
+SECTION: ".abs_section_18"
+  _APCTL2 
+SECTION: ".abs_section_1b"
+  _IRQSC 
+SECTION: ".abs_section_1c"
+  _KBISC 
+SECTION: ".abs_section_1d"
+  _KBIPE 
+SECTION: ".abs_section_1e"
+  _KBIES 
+SECTION: ".abs_section_20"
+  _TPM1SC 
+SECTION: ".abs_section_25"
+  _TPM1C0SC 
+SECTION: ".abs_section_28"
+  _TPM1C1SC 
+SECTION: ".abs_section_2b"
+  _TPM1C2SC 
+SECTION: ".abs_section_2e"
+  _TPM1C3SC 
+SECTION: ".abs_section_3a"
+  _SCI1C1 
+SECTION: ".abs_section_3b"
+  _SCI1C2 
+SECTION: ".abs_section_3c"
+  _SCI1S1 
+SECTION: ".abs_section_3d"
+  _SCI1S2 
+SECTION: ".abs_section_3e"
+  _SCI1C3 
+SECTION: ".abs_section_3f"
+  _SCI1D 
+SECTION: ".abs_section_42"
+  _SCI2C1 
+SECTION: ".abs_section_43"
+  _SCI2C2 
+SECTION: ".abs_section_44"
+  _SCI2S1 
+SECTION: ".abs_section_45"
+  _SCI2S2 
+SECTION: ".abs_section_46"
+  _SCI2C3 
+SECTION: ".abs_section_47"
+  _SCI2D 
+SECTION: ".abs_section_48"
+  _MCGC1 
+SECTION: ".abs_section_49"
+  _MCGC2 
+SECTION: ".abs_section_4a"
+  _MCGTRM 
+SECTION: ".abs_section_4b"
+  _MCGSC 
+SECTION: ".abs_section_4c"
+  _MCGC3 
+SECTION: ".abs_section_50"
+  _SPI1C1 
+SECTION: ".abs_section_51"
+  _SPI1C2 
+SECTION: ".abs_section_52"
+  _SPI1BR 
+SECTION: ".abs_section_53"
+  _SPI1S 
+SECTION: ".abs_section_58"
+  _IICA 
+SECTION: ".abs_section_59"
+  _IICF 
+SECTION: ".abs_section_5a"
+  _IICC1 
+SECTION: ".abs_section_5b"
+  _IICS 
+SECTION: ".abs_section_5c"
+  _IICD 
+SECTION: ".abs_section_5d"
+  _IICC2 
+SECTION: ".abs_section_60"
+  _TPM2SC 
+SECTION: ".abs_section_65"
+  _TPM2C0SC 
+SECTION: ".abs_section_68"
+  _TPM2C1SC 
+SECTION: ".abs_section_6c"
+  _RTCSC 
+SECTION: ".abs_section_6d"
+  _RTCCNT 
+SECTION: ".abs_section_6e"
+  _RTCMOD 
+SECTION: ".abs_section_70"
+  _SPI2C1 
+SECTION: ".abs_section_71"
+  _SPI2C2 
+SECTION: ".abs_section_72"
+  _SPI2BR 
+SECTION: ".abs_section_73"
+  _SPI2S 
+SECTION: ".abs_section_80"
+  _USBCTL0 
+SECTION: ".abs_section_88"
+  _PERID 
+SECTION: ".abs_section_89"
+  _IDCOMP 
+SECTION: ".abs_section_8a"
+  _REV 
+SECTION: ".abs_section_90"
+  _INTSTAT 
+SECTION: ".abs_section_91"
+  _INTENB 
+SECTION: ".abs_section_92"
+  _ERRSTAT 
+SECTION: ".abs_section_93"
+  _ERRENB 
+SECTION: ".abs_section_94"
+  _STAT 
+SECTION: ".abs_section_95"
+  _CTL 
+SECTION: ".abs_section_96"
+  _ADDR 
+SECTION: ".abs_section_97"
+  _FRMNUML 
+SECTION: ".abs_section_98"
+  _FRMNUMH 
+SECTION: ".abs_section_9d"
+  _EPCTL0 
+SECTION: ".abs_section_9e"
+  _EPCTL1 
+SECTION: ".abs_section_9f"
+  _EPCTL2 
+SECTION: ".abs_section_a0"
+  _EPCTL3 
+SECTION: ".abs_section_a1"
+  _EPCTL4 
+SECTION: ".abs_section_a2"
+  _EPCTL5 
+SECTION: ".abs_section_a3"
+  _EPCTL6 
+SECTION: ".abs_section_1800"
+  _SRS 
+SECTION: ".abs_section_1801"
+  _SBDFR 
+SECTION: ".abs_section_1802"
+  _SOPT1 
+SECTION: ".abs_section_1803"
+  _SOPT2 
+SECTION: ".abs_section_1809"
+  _SPMSC1 
+SECTION: ".abs_section_180a"
+  _SPMSC2 
+SECTION: ".abs_section_1816"
+  _DBGC 
+SECTION: ".abs_section_1817"
+  _DBGT 
+SECTION: ".abs_section_1818"
+  _DBGS 
+SECTION: ".abs_section_1820"
+  _FCDIV 
+SECTION: ".abs_section_1821"
+  _FOPT 
+SECTION: ".abs_section_1823"
+  _FCNFG 
+SECTION: ".abs_section_1824"
+  _FPROT 
+SECTION: ".abs_section_1825"
+  _FSTAT 
+SECTION: ".abs_section_1826"
+  _FCMD 
+SECTION: ".abs_section_1840"
+  _PTAPE 
+SECTION: ".abs_section_1841"
+  _PTASE 
+SECTION: ".abs_section_1842"
+  _PTADS 
+SECTION: ".abs_section_1844"
+  _PTBPE 
+SECTION: ".abs_section_1845"
+  _PTBSE 
+SECTION: ".abs_section_1846"
+  _PTBDS 
+SECTION: ".abs_section_1848"
+  _PTCPE 
+SECTION: ".abs_section_1849"
+  _PTCSE 
+SECTION: ".abs_section_184a"
+  _PTCDS 
+SECTION: ".abs_section_184c"
+  _PTDPE 
+SECTION: ".abs_section_184d"
+  _PTDSE 
+SECTION: ".abs_section_184e"
+  _PTDDS 
+SECTION: ".abs_section_1850"
+  _PTEPE 
+SECTION: ".abs_section_1851"
+  _PTESE 
+SECTION: ".abs_section_1852"
+  _PTEDS 
+SECTION: ".abs_section_1854"
+  _PTFPE 
+SECTION: ".abs_section_1855"
+  _PTFSE 
+SECTION: ".abs_section_1856"
+  _PTFDS 
+SECTION: ".abs_section_1858"
+  _PTGPE 
+SECTION: ".abs_section_1859"
+  _PTGSE 
+SECTION: ".abs_section_185a"
+  _PTGDS 
+SECTION: ".abs_section_12"
+  _ADCR 
+SECTION: ".abs_section_14"
+  _ADCCV 
+SECTION: ".abs_section_21"
+  _TPM1CNT 
+SECTION: ".abs_section_23"
+  _TPM1MOD 
+SECTION: ".abs_section_26"
+  _TPM1C0V 
+SECTION: ".abs_section_29"
+  _TPM1C1V 
+SECTION: ".abs_section_2c"
+  _TPM1C2V 
+SECTION: ".abs_section_2f"
+  _TPM1C3V 
+SECTION: ".abs_section_38"
+  _SCI1BD 
+SECTION: ".abs_section_40"
+  _SCI2BD 
+SECTION: ".abs_section_54"
+  _SPI1D16 
+SECTION: ".abs_section_56"
+  _SPI1M 
+SECTION: ".abs_section_61"
+  _TPM2CNT 
+SECTION: ".abs_section_63"
+  _TPM2MOD 
+SECTION: ".abs_section_66"
+  _TPM2C0V 
+SECTION: ".abs_section_69"
+  _TPM2C1V 
+SECTION: ".abs_section_74"
+  _SPI2D16 
+SECTION: ".abs_section_76"
+  _SPI2M 
+SECTION: ".abs_section_1806"
+  _SDID 
+SECTION: ".abs_section_1810"
+  _DBGCA 
+SECTION: ".abs_section_1812"
+  _DBGCB 
+SECTION: ".abs_section_1814"
+  _DBGF 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     _PTAD                                        0       1       1       0   .abs_section_0
+     _PTADD                                       1       1       1       0   .abs_section_1
+     _PTBD                                        2       1       1       0   .abs_section_2
+     _PTBDD                                       3       1       1       0   .abs_section_3
+     _PTCD                                        4       1       1       3   .abs_section_4
+     _PTCDD                                       5       1       1       1   .abs_section_5
+     _PTDD                                        6       1       1       0   .abs_section_6
+     _PTDDD                                       7       1       1       0   .abs_section_7
+     _PTED                                        8       1       1       2   .abs_section_8
+     _PTEDD                                       9       1       1       1   .abs_section_9
+     _PTFD                                        A       1       1       6   .abs_section_a
+     _PTFDD                                       B       1       1       2   .abs_section_b
+     _PTGD                                        C       1       1       0   .abs_section_c
+     _PTGDD                                       D       1       1       0   .abs_section_d
+     _ACMPSC                                      E       1       1       0   .abs_section_e
+     _ADCSC1                                     10       1       1      11   .abs_section_10
+     _ADCSC2                                     11       1       1       0   .abs_section_11
+     _ADCR                                       12       2       2       5   .abs_section_12
+     _ADCCV                                      14       2       2       0   .abs_section_14
+     _ADCCFG                                     16       1       1       1   .abs_section_16
+     _APCTL1                                     17       1       1       1   .abs_section_17
+     _APCTL2                                     18       1       1       0   .abs_section_18
+     _IRQSC                                      1B       1       1       0   .abs_section_1b
+     _KBISC                                      1C       1       1       0   .abs_section_1c
+     _KBIPE                                      1D       1       1       0   .abs_section_1d
+     _KBIES                                      1E       1       1       0   .abs_section_1e
+     _TPM1SC                                     20       1       1       2   .abs_section_20
+     _TPM1CNT                                    21       2       2       0   .abs_section_21
+     _TPM1MOD                                    23       2       2       1   .abs_section_23
+     _TPM1C0SC                                   25       1       1       0   .abs_section_25
+     _TPM1C0V                                    26       2       2       0   .abs_section_26
+     _TPM1C1SC                                   28       1       1       0   .abs_section_28
+     _TPM1C1V                                    29       2       2       0   .abs_section_29
+     _TPM1C2SC                                   2B       1       1       1   .abs_section_2b
+     _TPM1C2V                                    2C       2       2       2   .abs_section_2c
+     _TPM1C3SC                                   2E       1       1       0   .abs_section_2e
+     _TPM1C3V                                    2F       2       2       0   .abs_section_2f
+     _SCI1BD                                     38       2       2       0   .abs_section_38
+     _SCI1C1                                     3A       1       1       0   .abs_section_3a
+     _SCI1C2                                     3B       1       1       0   .abs_section_3b
+     _SCI1S1                                     3C       1       1       0   .abs_section_3c
+     _SCI1S2                                     3D       1       1       0   .abs_section_3d
+     _SCI1C3                                     3E       1       1       0   .abs_section_3e
+     _SCI1D                                      3F       1       1       0   .abs_section_3f
+     _SCI2BD                                     40       2       2       0   .abs_section_40
+     _SCI2C1                                     42       1       1       0   .abs_section_42
+     _SCI2C2                                     43       1       1       0   .abs_section_43
+     _SCI2S1                                     44       1       1       0   .abs_section_44
+     _SCI2S2                                     45       1       1       0   .abs_section_45
+     _SCI2C3                                     46       1       1       0   .abs_section_46
+     _SCI2D                                      47       1       1       0   .abs_section_47
+     _MCGC1                                      48       1       1       0   .abs_section_48
+     _MCGC2                                      49       1       1       0   .abs_section_49
+     _MCGTRM                                     4A       1       1       0   .abs_section_4a
+     _MCGSC                                      4B       1       1       0   .abs_section_4b
+     _MCGC3                                      4C       1       1       0   .abs_section_4c
+     _SPI1C1                                     50       1       1       0   .abs_section_50
+     _SPI1C2                                     51       1       1       0   .abs_section_51
+     _SPI1BR                                     52       1       1       0   .abs_section_52
+     _SPI1S                                      53       1       1       0   .abs_section_53
+     _SPI1D16                                    54       2       2       0   .abs_section_54
+     _SPI1M                                      56       2       2       0   .abs_section_56
+     _IICA                                       58       1       1       0   .abs_section_58
+     _IICF                                       59       1       1       0   .abs_section_59
+     _IICC1                                      5A       1       1       0   .abs_section_5a
+     _IICS                                       5B       1       1       0   .abs_section_5b
+     _IICD                                       5C       1       1       0   .abs_section_5c
+     _IICC2                                      5D       1       1       0   .abs_section_5d
+     _TPM2SC                                     60       1       1       0   .abs_section_60
+     _TPM2CNT                                    61       2       2       0   .abs_section_61
+     _TPM2MOD                                    63       2       2       0   .abs_section_63
+     _TPM2C0SC                                   65       1       1       0   .abs_section_65
+     _TPM2C0V                                    66       2       2       0   .abs_section_66
+     _TPM2C1SC                                   68       1       1       0   .abs_section_68
+     _TPM2C1V                                    69       2       2       0   .abs_section_69
+     _RTCSC                                      6C       1       1       0   .abs_section_6c
+     _RTCCNT                                     6D       1       1       0   .abs_section_6d
+     _RTCMOD                                     6E       1       1       0   .abs_section_6e
+     _SPI2C1                                     70       1       1       0   .abs_section_70
+     _SPI2C2                                     71       1       1       0   .abs_section_71
+     _SPI2BR                                     72       1       1       0   .abs_section_72
+     _SPI2S                                      73       1       1       0   .abs_section_73
+     _SPI2D16                                    74       2       2       0   .abs_section_74
+     _SPI2M                                      76       2       2       0   .abs_section_76
+     _USBCTL0                                    80       1       1       0   .abs_section_80
+     _PERID                                      88       1       1       0   .abs_section_88
+     _IDCOMP                                     89       1       1       0   .abs_section_89
+     _REV                                        8A       1       1       0   .abs_section_8a
+     _INTSTAT                                    90       1       1       0   .abs_section_90
+     _INTENB                                     91       1       1       0   .abs_section_91
+     _ERRSTAT                                    92       1       1       0   .abs_section_92
+     _ERRENB                                     93       1       1       0   .abs_section_93
+     _STAT                                       94       1       1       0   .abs_section_94
+     _CTL                                        95       1       1       0   .abs_section_95
+     _ADDR                                       96       1       1       0   .abs_section_96
+     _FRMNUML                                    97       1       1       0   .abs_section_97
+     _FRMNUMH                                    98       1       1       0   .abs_section_98
+     _EPCTL0                                     9D       1       1       0   .abs_section_9d
+     _EPCTL1                                     9E       1       1       0   .abs_section_9e
+     _EPCTL2                                     9F       1       1       0   .abs_section_9f
+     _EPCTL3                                     A0       1       1       0   .abs_section_a0
+     _EPCTL4                                     A1       1       1       0   .abs_section_a1
+     _EPCTL5                                     A2       1       1       0   .abs_section_a2
+     _EPCTL6                                     A3       1       1       0   .abs_section_a3
+     temp2                                      100       7       7       2   .bss        
+     pbuf                                       107       6       6      14   .bss        
+     temperature                                10D       4       4       4   .common     
+     joystick_X                                 111       4       4       3   .common     
+     joystick_Y                                 115       4       4       3   .common     
+     SW                                         119       4       4       3   .common     
+     solar_panel                                11D       4       4       5   .common     
+     temporal_var                               121       1       1       1   .common     
+     temporal                                   122       8       8       2   .common     
+     _SRS                                      1800       1       1       0   .abs_section_1800
+     _SBDFR                                    1801       1       1       0   .abs_section_1801
+     _SOPT1                                    1802       1       1       1   .abs_section_1802
+     _SOPT2                                    1803       1       1       0   .abs_section_1803
+     _SDID                                     1806       2       2       0   .abs_section_1806
+     _SPMSC1                                   1809       1       1       0   .abs_section_1809
+     _SPMSC2                                   180A       1       1       0   .abs_section_180a
+     _DBGCA                                    1810       2       2       0   .abs_section_1810
+     _DBGCB                                    1812       2       2       0   .abs_section_1812
+     _DBGF                                     1814       2       2       0   .abs_section_1814
+     _DBGC                                     1816       1       1       0   .abs_section_1816
+     _DBGT                                     1817       1       1       0   .abs_section_1817
+     _DBGS                                     1818       1       1       0   .abs_section_1818
+     _FCDIV                                    1820       1       1       0   .abs_section_1820
+     _FOPT                                     1821       1       1       0   .abs_section_1821
+     _FCNFG                                    1823       1       1       0   .abs_section_1823
+     _FPROT                                    1824       1       1       0   .abs_section_1824
+     _FSTAT                                    1825       1       1       0   .abs_section_1825
+     _FCMD                                     1826       1       1       0   .abs_section_1826
+     _PTAPE                                    1840       1       1       0   .abs_section_1840
+     _PTASE                                    1841       1       1       0   .abs_section_1841
+     _PTADS                                    1842       1       1       0   .abs_section_1842
+     _PTBPE                                    1844       1       1       0   .abs_section_1844
+     _PTBSE                                    1845       1       1       0   .abs_section_1845
+     _PTBDS                                    1846       1       1       0   .abs_section_1846
+     _PTCPE                                    1848       1       1       0   .abs_section_1848
+     _PTCSE                                    1849       1       1       0   .abs_section_1849
+     _PTCDS                                    184A       1       1       0   .abs_section_184a
+     _PTDPE                                    184C       1       1       0   .abs_section_184c
+     _PTDSE                                    184D       1       1       0   .abs_section_184d
+     _PTDDS                                    184E       1       1       0   .abs_section_184e
+     _PTEPE                                    1850       1       1       0   .abs_section_1850
+     _PTESE                                    1851       1       1       0   .abs_section_1851
+     _PTEDS                                    1852       1       1       0   .abs_section_1852
+     _PTFPE                                    1854       1       1       0   .abs_section_1854
+     _PTFSE                                    1855       1       1       0   .abs_section_1855
+     _PTFDS                                    1856       1       1       0   .abs_section_1856
+     _PTGPE                                    1858       1       1       0   .abs_section_1858
+     _PTGSE                                    1859       1       1       0   .abs_section_1859
+     _PTGDS                                    185A       1       1       0   .abs_section_185a
+     loadByte                                  C000       E      14       5   .init       
+     Init                                      C00E      6D     109       1   .init       
+     _Startup                                  C07B       9       9       0   .init       
+     pow10                                     C096      28      40       4   .rodata     
+     pow16                                     C0BE      20      32       4   .rodata     
+     pow8                                      C0DE      2C      44       4   .rodata     
+     fpow10                                    C10A      60      96       1   .rodata     
+     fpow_10                                   C16A      60      96       1   .rodata     
+     STRING.XOXOXOXOXOXOXOXO.3                 C1CA      11      17       1   .rodata1    
+     STRING..4.3f.4                            C1DB       6       6       1   .rodata1    
+     STRING..S..5                              C1E1       4       4       1   .rodata1    
+     main                                      C1E5      1D      29       1   .text       
+     mcu_config                                C202       9       9       1   .text       
+     init_PWM                                  C20B      12      18       1   .text       
+     init_ADC                                  C21D       9       9       1   .text       
+     glcd_init                                 C226      20      32       1   .text       
+     glcd_instruction                          C246      12      18       5   .text       
+     glcd_data                                 C258      12      18       1   .text       
+     glcd_message                              C26A      2B      43       3   .text       
+     delayAx5ms                                C295      1B      27       5   .text       
+     sampling_ADC                              C2B0      FD     253       1   .text       
+     show_data                                 C3AD      39      57       1   .text       
+     decision_data                             C3E6      35      53       1   .text       
+     frexp                                     C41B      5E      94       1   .text       
+     Ten                                       C479      F2     242       7   .text       
+     vprintf                                   C56B     CC5    3269      99   .text       
+     _out                                      D230       D      13      14   .text       
+     deposit_char                              D23D      15      21       1   .text       
+     sprintf                                   D252      3B      59       1   .text       
+     _PUSH_ARGS_L                              D28D      20      32       3   .text       
+     _PUSH_ARGS_D                              D2AD      33      51       2   .text       
+     _ENTER_UNARY_L                            D2E0      29      41       3   .text       
+     _ENTER_UNARY_L64                          D309      3D      61       2   .text       
+     _ENTER_UNARY_L64_4                        D346      29      41       2   .text       
+     _ENTER_BINARY_L                           D36F      16      22       2   .text       
+     _ENTER_BINARY_L_RC                        D385      19      25       4   .text       
+     _ENTER_BINARY_L_LC                        D39E      1A      26       1   .text       
+     _ENTER_BINARY_L64                         D3B8      17      23       3   .text       
+     _ENTER_BINARY_L64_RC                      D3CF      13      19       3   .text       
+     _IDIVMOD                                  D3E2      69     105       1   .text       
+     _SPLITSIGN                                D44B      1C      28       2   .text       
+     _LSUB_k_is_k_minus_j                      D467      1F      31       1   .text       
+     _LDIVMOD                                  D486      A4     164       2   .text       
+     _NEG_L_HX                                 D52A      13      19       2   .text       
+     _LMODU_k_is_k_mod_j                       D53D       B      11       1   .text       
+     _LDIVU_k_is_k_div_j                       D548      17      23       1   .text       
+     _LCMP_k_rel_j                             D55F      1F      31       1   .text       
+     _IMUL_STAR08                              D57E      27      39       3   .text       
+     _IDIVS_STAR08                             D5A5      1B      27       2   .text       
+     _IMODS_STAR08                             D5C0      25      37       2   .text       
+     _LNEG                                     D5E5      1C      28       1   .text       
+     _LSUB                                     D601       6       6       3   .text       
+     _LDIVU_RC                                 D607       6       6       1   .text       
+     _LMODU_RC                                 D60D       6       6       1   .text       
+     _LCMP                                     D613       6       6       7   .text       
+     _COPY                                     D619      30      48      10   .text       
+     _POP32                                    D649      1A      26      24   .text       
+     _POP64                                    D663      2E      46      17   .text       
+     _SEXT16_32                                D691       D      13       2   .text       
+     _Jump_Table_Addr                          D69E      16      22       2   .text       
+     _Search_Table_8_Addr                      D6B4      21      33       1   .text       
+     _Search_Table_8_Offset                    D6D5      25      37       1   .text       
+     F_CLRK                                    D6FA       6       6       3   .text       
+     F_CLRK_Unary                              D700       6       6       1   .text       
+     F_NANK                                    D706       6       6       2   .text       
+     F_INFK                                    D70C       6       6       3   .text       
+     F_TLK                                     D712      1E      30       1   .text       
+     _UNPACK_k_to_K                            D730      58      88       2   .text       
+     _UNPACK_k_to_K_Unary                      D788      58      88       1   .text       
+     _UNPACK_j_to_L                            D7E0      58      88       2   .text       
+     _PACK_K_to_k                              D838      63      99       2   .text       
+     _PACK_K_to_k_Unary                        D89B      4F      79       1   .text       
+     F_NORMK                                   D8EA      43      67       2   .text       
+     _FMUL_K_is_K_times_L                      D92D      88     136       1   .text       
+     _FDIV_K_is_L_div_K                        D9B5      B5     181       1   .text       
+     _F_LONGK                                  DA6A      5A      90       1   .text       
+     _F_FLOATK                                 DAC4      2E      46       1   .text       
+     _FCMP_k_rel_j                             DAF2      2C      44       1   .text       
+     _FMUL_Common                              DB1E       F      15       1   .text       
+     _FDIV_Common                              DB2D       F      15       1   .text       
+     _FMUL_RC                                  DB3C       7       7       7   .text       
+     _FDIV_RC                                  DB43       7       7       5   .text       
+     _FSTRUNC                                  DB4A       B      11       1   .text       
+     _FCMP_RC                                  DB55       6       6       1   .text       
+     _FUFLOAT                                  DB5B       B      11       5   .text       
+     D_TLK                                     DB66      23      35       2   .text       
+     D_TKRes                                   DB89      11      17       1   .text       
+     D_XGKL                                    DB9A      34      52       1   .text       
+     D_CLRK                                    DBCE       6       6       3   .text       
+     D_CLRK_Unary                              DBD4       6       6       3   .text       
+     D_NANK                                    DBDA       6       6       2   .text       
+     D_INFK                                    DBE0       6       6       2   .text       
+     D_INFK_Unary                              DBE6       6       6       1   .text       
+     _DUNPACK_k_to_K                           DBEC      89     137       2   .text       
+     _DUNPACK_k_to_K_Unary                     DC75      89     137       1   .text       
+     _DUNPACK_j_to_L                           DCFE      89     137       2   .text       
+     _DPACK_K_to_k                             DD87      A6     166       2   .text       
+     _DPACK_K_to_k_Unary                       DE2D      75     117       2   .text       
+     D_NORMK_Unary                             DEA2      6C     108       1   .text       
+     D_NORMK                                   DF0E      6C     108       3   .text       
+     _DADD_K_is_K_plus_L                       DF7A      DF     223       1   .text       
+     _DMUL_K_is_K_times_L                      E059      98     152       1   .text       
+     _DCMP_k_rel_j                             E0F1      2C      44       1   .text       
+     _D_FLOATK                                 E11D      45      69       1   .text       
+     _D_LONGK                                  E162      5B      91       1   .text       
+     _D_FTODK                                  E1BD      2A      42       1   .text       
+     _DADD_Common                              E1E7       C      12       3   .text       
+     _DSUB_Common                              E1F3       9       9       1   .text       
+     _DMUL_Common                              E1FC       C      12       2   .text       
+     _DADD                                     E208       7       7       2   .text       
+     _DADD_RC                                  E20F       7       7       1   .text       
+     _DSUB                                     E216       7       7       2   .text       
+     _DMUL                                     E21D       7       7       8   .text       
+     _DMUL_RC                                  E224       7       7       5   .text       
+     _DCMP_RC                                  E22B       6       6       2   .text       
+     _DNEG                                     E231      20      32       1   .text       
+     _DUFLOAT                                  E251       B      11       2   .text       
+     _DSTRUNC                                  E25C       B      11       7   .text       
+     _DLONG                                    E267       C      12       1   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+NOT USED PROCEDURES
+math08d.o (ansis.lib):
+  modf ldexp 
+printf.o (ansis.lib):
+  set_printf vsprintf 
+rtshc08.o (ansis.lib):
+  _ENTER_BINARY_L64_LC _LADD_k_is_k_plus_j _k_is_k_plus_j_l _k_is_k_plus_j_i 
+  _LAND_k_is_k_and_j _LOR_k_is_k_or_j _LXOR_k_is_k_xor_j _LMUL_k_is_k_mul_j 
+  _ABS_L_HX _SPLITSIGN_L _LMODS_k_is_k_mod_j _LDIVS_k_is_k_div_j _CMP24_k_rel_j 
+  _BMULS _BDIVS _BMODS _IDIVU_STAR08 _IMODU_STAR08 _IDIVU_8 _IMODU_8 _IASR 
+  _ILSR _ILSL _ICMP _LINC _LDEC _LNOT _LADD _LADD_RC _LSUB_LC _LSUB_RC _LAND 
+  _LAND_RC _LOR _LOR_RC _LXOR _LXOR_RC _LMUL _LMUL_RC _LDIVS _LDIVS_LC 
+  _LDIVS_RC _LDIVU _LDIVU_LC _LMODS _LMODS_LC _LMODS_RC _LMODU _LMODU_LC _LASR 
+  _LLSR _LLSL _LCMP_RC _PUSH_ARGS_24 _ENTER_BINARY_24_RC _ENTER_BINARY_24 
+  _CMP24 _CMP24_RC _COPY_L _STORE32 _STORE64 _SEXT8_32 _CALL_STAR08 
+  _CALL_STAR08_FAR _Jump_Table_Offset _Jump_Table_Header_Addr 
+  _Jump_Table_Header_Offset _Search_Table_16_Addr _Search_Table_16_Offset 
+  _PUSH_CC _POP_CC _CONV_FAR_TO_NEAR _CONV_FAR_TO_LINEAR _CONV_LINEAR_TO_FAR 
+  F_XGKL _FADD_K_is_K_plus_L _FADD_Common _FSUB_Common _FADD _FADD_RC _FSUB 
+  _FSUB_RC _FSUB_LC _FMUL _FDIV _FDIV_LC _FUTRUNC _FNEG _FABS _FCMP _FINC _FDEC 
+  _FSFLOAT _DDIV_K_is_L_div_K _D_DTOFK _DDIV_Common _DSUB_RC _DSUB_LC _DDIV 
+  _DDIV_LC _DDIV_RC _DCMP _DINC _DDEC _DABS _DSFLOAT _DUTRUNC _DSHORT 
+NOT USED VARIABLES
+main_c.obj:
+  temp 
+rtshc08.o (ansis.lib):
+  _PowOfTwo_8 _PowOfTwo_16 _PowOfTwo_32 plus1 minus1 plus1d minus1d errno 
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+------- ROM-ADDRESS: 0xE273 ---- SIZE       2 ---
+Filling bytes inserted
+ 0000
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Init                      USES _startupData loadByte 
+_Startup                  USES __SEG_END_SSTACK Init main 
+main                      USES mcu_config init_ADC init_PWM glcd_init 
+                                STRING.XOXOXOXOXOXOXOXO.3 glcd_message sampling_ADC decision_data 
+                                show_data 
+mcu_config                USES _SOPT1 _PTCDD _PTCD 
+init_PWM                  USES _TPM1SC _TPM1MOD _TPM1C2SC _TPM1C2V 
+init_ADC                  USES _ADCCFG _APCTL1 _ADCSC1 
+glcd_init                 USES _PTEDD _PTFDD delayAx5ms glcd_instruction 
+glcd_instruction          USES _PTFD _PTED delayAx5ms 
+glcd_data                 USES _PTFD _PTED delayAx5ms 
+glcd_message              USES glcd_data 
+sampling_ADC              USES _ADCSC1 _ADCR _FUFLOAT joystick_X _POP32 
+                                _FMUL_RC _FDIV_RC joystick_Y SW temperature solar_panel 
+show_data                 USES glcd_instruction solar_panel _DLONG temporal 
+                                _POP64 _COPY STRING..4.3f.4 temp2 sprintf 
+                                STRING..S..5 glcd_message 
+decision_data             USES solar_panel _FMUL_RC _FSTRUNC temporal_var 
+                                _TPM1C2V temperature _FCMP_RC _PTCD 
+frexp                     USES _COPY 
+Ten                       USES fpow10 fpow_10 Ten _COPY _DMUL _POP64 
+vprintf                   USES _out vprintf _Search_Table_8_Offset 
+                                _IMUL_STAR08 _Jump_Table_Addr _Search_Table_8_Addr pbuf 
+                                _SEXT16_32 _POP32 _LNEG pow8 _LCMP pow16 pow10 _COPY 
+                                _LSUB _DNEG _POP64 frexp _DMUL _DMUL_RC _DADD 
+                                _DSTRUNC _DUFLOAT _DSUB _DADD_RC Ten _IDIVS_STAR08 
+                                _IMODS_STAR08 _LDIVU_RC _LMODU_RC _DCMP_RC 
+_out                      USES pbuf 
+deposit_char              USES pbuf 
+sprintf                   USES pbuf deposit_char vprintf 
+_ENTER_BINARY_L           USES _PUSH_ARGS_L 
+_ENTER_BINARY_L_RC        USES _PUSH_ARGS_L 
+_ENTER_BINARY_L_LC        USES _PUSH_ARGS_L 
+_ENTER_BINARY_L64         USES _PUSH_ARGS_D 
+_ENTER_BINARY_L64_RC      USES _PUSH_ARGS_D 
+_SPLITSIGN                USES _IDIVMOD 
+_LMODU_k_is_k_mod_j       USES _LDIVMOD 
+_LDIVU_k_is_k_div_j       USES _LDIVMOD 
+_IDIVS_STAR08             USES _SPLITSIGN 
+_IMODS_STAR08             USES _SPLITSIGN 
+_LNEG                     USES _ENTER_UNARY_L 
+_LSUB                     USES _ENTER_BINARY_L _LSUB_k_is_k_minus_j 
+_LDIVU_RC                 USES _ENTER_BINARY_L_RC _LDIVU_k_is_k_div_j 
+_LMODU_RC                 USES _ENTER_BINARY_L_RC _LMODU_k_is_k_mod_j 
+_LCMP                     USES _ENTER_BINARY_L _LCMP_k_rel_j 
+F_NORMK                   USES F_CLRK F_INFK 
+_FMUL_K_is_K_times_L      USES F_CLRK F_NANK F_INFK F_TLK 
+_FDIV_K_is_L_div_K        USES F_NANK F_INFK F_CLRK 
+_F_LONGK                  USES _NEG_L_HX 
+_F_FLOATK                 USES F_CLRK_Unary 
+_FMUL_Common              USES _UNPACK_k_to_K _UNPACK_j_to_L 
+                                _FMUL_K_is_K_times_L F_NORMK _PACK_K_to_k 
+_FDIV_Common              USES _UNPACK_k_to_K _UNPACK_j_to_L 
+                                _FDIV_K_is_L_div_K F_NORMK _PACK_K_to_k 
+_FMUL_RC                  USES _ENTER_BINARY_L_RC _FMUL_Common 
+_FDIV_RC                  USES _ENTER_BINARY_L_LC _FDIV_Common 
+_FSTRUNC                  USES _ENTER_UNARY_L _UNPACK_k_to_K_Unary _F_LONGK 
+_FCMP_RC                  USES _ENTER_BINARY_L_RC _FCMP_k_rel_j 
+_FUFLOAT                  USES _ENTER_UNARY_L _F_FLOATK _PACK_K_to_k_Unary 
+_DPACK_K_to_k             USES D_TKRes 
+D_NORMK_Unary             USES D_CLRK_Unary D_INFK_Unary 
+D_NORMK                   USES D_CLRK D_INFK 
+_DADD_K_is_K_plus_L       USES D_NANK D_TLK D_XGKL D_NORMK 
+_DMUL_K_is_K_times_L      USES D_CLRK D_NANK D_INFK D_TLK D_NORMK 
+_D_FLOATK                 USES D_CLRK_Unary 
+_D_LONGK                  USES _NEG_L_HX 
+_D_FTODK                  USES D_NORMK_Unary 
+_DADD_Common              USES _DUNPACK_k_to_K _DUNPACK_j_to_L 
+                                _DADD_K_is_K_plus_L _DPACK_K_to_k 
+_DSUB_Common              USES _DADD_Common 
+_DMUL_Common              USES _DUNPACK_k_to_K _DUNPACK_j_to_L 
+                                _DMUL_K_is_K_times_L _DPACK_K_to_k 
+_DADD                     USES _ENTER_BINARY_L64 _DADD_Common 
+_DADD_RC                  USES _ENTER_BINARY_L64_RC _DADD_Common 
+_DSUB                     USES _ENTER_BINARY_L64 _DSUB_Common 
+_DMUL                     USES _ENTER_BINARY_L64 _DMUL_Common 
+_DMUL_RC                  USES _ENTER_BINARY_L64_RC _DMUL_Common 
+_DCMP_RC                  USES _ENTER_BINARY_L64_RC _DCMP_k_rel_j 
+_DNEG                     USES _ENTER_UNARY_L64 
+_DUFLOAT                  USES _ENTER_UNARY_L64_4 _D_FLOATK 
+                                _DPACK_K_to_k_Unary 
+_DSTRUNC                  USES _ENTER_UNARY_L64 _DUNPACK_k_to_K_Unary _D_LONGK 
+_DLONG                    USES _ENTER_UNARY_L64_4 _D_FTODK _DPACK_K_to_k_Unary 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |  | 
+ |  +- mcu_config          
+ |  |    
+ |  +- init_ADC            
+ |  |    
+ |  +- init_PWM            
+ |  |    
+ |  +- glcd_init           
+ |  |  | 
+ |  |  +- delayAx5ms          
+ |  |  |    
+ |  |  +- glcd_instruction    
+ |  |     | 
+ |  |     +- delayAx5ms           (see above)
+ |  |        
+ |  +- glcd_message        
+ |  |  | 
+ |  |  +- glcd_data           
+ |  |     | 
+ |  |     +- delayAx5ms           (see above)
+ |  |        
+ |  +- sampling_ADC        
+ |  |  | 
+ |  |  +- _FUFLOAT            
+ |  |  |  | 
+ |  |  |  +- _ENTER_UNARY_L      
+ |  |  |  |    
+ |  |  |  +- _F_FLOATK           
+ |  |  |  |  | 
+ |  |  |  |  +- F_CLRK_Unary        
+ |  |  |  |       
+ |  |  |  +- _PACK_K_to_k_Unary  
+ |  |  |       
+ |  |  +- _POP32              
+ |  |  |    
+ |  |  +- _FMUL_RC            
+ |  |  |  | 
+ |  |  |  +- _ENTER_BINARY_L_RC  
+ |  |  |  |  | 
+ |  |  |  |  +- _PUSH_ARGS_L        
+ |  |  |  |       
+ |  |  |  +- _FMUL_Common        
+ |  |  |     | 
+ |  |  |     +- _UNPACK_k_to_K      
+ |  |  |     |    
+ |  |  |     +- _UNPACK_j_to_L      
+ |  |  |     |    
+ |  |  |     +- _FMUL_K_is_K_times_L
+ |  |  |     |  | 
+ |  |  |     |  +- F_CLRK              
+ |  |  |     |  |    
+ |  |  |     |  +- F_NANK              
+ |  |  |     |  |    
+ |  |  |     |  +- F_INFK              
+ |  |  |     |  |    
+ |  |  |     |  +- F_TLK               
+ |  |  |     |       
+ |  |  |     +- F_NORMK             
+ |  |  |     |  | 
+ |  |  |     |  +- F_CLRK               (see above)
+ |  |  |     |  |  
+ |  |  |     |  +- F_INFK               (see above)
+ |  |  |     |     
+ |  |  |     +- _PACK_K_to_k        
+ |  |  |          
+ |  |  +- _FDIV_RC            
+ |  |     | 
+ |  |     +- _ENTER_BINARY_L_LC  
+ |  |     |  | 
+ |  |     |  +- _PUSH_ARGS_L         (see above)
+ |  |     |     
+ |  |     +- _FDIV_Common        
+ |  |        | 
+ |  |        +- _UNPACK_k_to_K       (see above)
+ |  |        |  
+ |  |        +- _UNPACK_j_to_L       (see above)
+ |  |        |  
+ |  |        +- _FDIV_K_is_L_div_K  
+ |  |        |  | 
+ |  |        |  +- F_NANK               (see above)
+ |  |        |  |  
+ |  |        |  +- F_INFK               (see above)
+ |  |        |  |  
+ |  |        |  +- F_CLRK               (see above)
+ |  |        |     
+ |  |        +- F_NORMK              (see above)
+ |  |        |  
+ |  |        +- _PACK_K_to_k         (see above)
+ |  |           
+ |  +- decision_data       
+ |  |  | 
+ |  |  +- _FMUL_RC             (see above)
+ |  |  |  
+ |  |  +- _FSTRUNC            
+ |  |  |  | 
+ |  |  |  +- _ENTER_UNARY_L       (see above)
+ |  |  |  |  
+ |  |  |  +- _UNPACK_k_to_K_Unary
+ |  |  |  |    
+ |  |  |  +- _F_LONGK            
+ |  |  |     | 
+ |  |  |     +- _NEG_L_HX           
+ |  |  |          
+ |  |  +- _FCMP_RC            
+ |  |     | 
+ |  |     +- _ENTER_BINARY_L_RC   (see above)
+ |  |     |  
+ |  |     +- _FCMP_k_rel_j       
+ |  |          
+ |  +- show_data           
+ |     | 
+ |     +- glcd_instruction     (see above)
+ |     |  
+ |     +- _DLONG              
+ |     |  | 
+ |     |  +- _ENTER_UNARY_L64_4  
+ |     |  |    
+ |     |  +- _D_FTODK            
+ |     |  |  | 
+ |     |  |  +- D_NORMK_Unary       
+ |     |  |     | 
+ |     |  |     +- D_CLRK_Unary        
+ |     |  |     |    
+ |     |  |     +- D_INFK_Unary        
+ |     |  |          
+ |     |  +- _DPACK_K_to_k_Unary 
+ |     |       
+ |     +- _POP64              
+ |     |    
+ |     +- _COPY               
+ |     |    
+ |     +- sprintf             
+ |     |  | 
+ |     |  +- deposit_char        
+ |     |  |    
+ |     |  +- vprintf             
+ |     |     | 
+ |     |     +- _out                
+ |     |     |    
+ |     |     +- _Search_Table_8_Offset
+ |     |     |    
+ |     |     +- _IMUL_STAR08        
+ |     |     |    
+ |     |     +- _Jump_Table_Addr    
+ |     |     |    
+ |     |     +- _Search_Table_8_Addr
+ |     |     |    
+ |     |     +- _SEXT16_32          
+ |     |     |    
+ |     |     +- _POP32               (see above)
+ |     |     |  
+ |     |     +- _LNEG               
+ |     |     |  | 
+ |     |     |  +- _ENTER_UNARY_L       (see above)
+ |     |     |     
+ |     |     +- _LCMP               
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L     
+ |     |     |  |  | 
+ |     |     |  |  +- _PUSH_ARGS_L         (see above)
+ |     |     |  |     
+ |     |     |  +- _LCMP_k_rel_j       
+ |     |     |       
+ |     |     +- _COPY                (see above)
+ |     |     |  
+ |     |     +- _LSUB               
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L      (see above)
+ |     |     |  |  
+ |     |     |  +- _LSUB_k_is_k_minus_j
+ |     |     |       
+ |     |     +- _DNEG               
+ |     |     |  | 
+ |     |     |  +- _ENTER_UNARY_L64    
+ |     |     |       
+ |     |     +- _POP64               (see above)
+ |     |     |  
+ |     |     +- frexp               
+ |     |     |  | 
+ |     |     |  +- _COPY                (see above)
+ |     |     |     
+ |     |     +- _DMUL               
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L64   
+ |     |     |  |  | 
+ |     |     |  |  +- _PUSH_ARGS_D        
+ |     |     |  |       
+ |     |     |  +- _DMUL_Common        
+ |     |     |     | 
+ |     |     |     +- _DUNPACK_k_to_K     
+ |     |     |     |    
+ |     |     |     +- _DUNPACK_j_to_L     
+ |     |     |     |    
+ |     |     |     +- _DMUL_K_is_K_times_L
+ |     |     |     |  | 
+ |     |     |     |  +- D_CLRK              
+ |     |     |     |  |    
+ |     |     |     |  +- D_NANK              
+ |     |     |     |  |    
+ |     |     |     |  +- D_INFK              
+ |     |     |     |  |    
+ |     |     |     |  +- D_TLK               
+ |     |     |     |  |    
+ |     |     |     |  +- D_NORMK             
+ |     |     |     |     | 
+ |     |     |     |     +- D_CLRK               (see above)
+ |     |     |     |     |  
+ |     |     |     |     +- D_INFK               (see above)
+ |     |     |     |        
+ |     |     |     +- _DPACK_K_to_k       
+ |     |     |        | 
+ |     |     |        +- D_TKRes             
+ |     |     |             
+ |     |     +- _DMUL_RC            
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L64_RC
+ |     |     |  |  | 
+ |     |     |  |  +- _PUSH_ARGS_D         (see above)
+ |     |     |  |     
+ |     |     |  +- _DMUL_Common         (see above)
+ |     |     |     
+ |     |     +- _DADD               
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L64    (see above)
+ |     |     |  |  
+ |     |     |  +- _DADD_Common        
+ |     |     |     | 
+ |     |     |     +- _DUNPACK_k_to_K      (see above)
+ |     |     |     |  
+ |     |     |     +- _DUNPACK_j_to_L      (see above)
+ |     |     |     |  
+ |     |     |     +- _DADD_K_is_K_plus_L 
+ |     |     |     |  | 
+ |     |     |     |  +- D_NANK               (see above)
+ |     |     |     |  |  
+ |     |     |     |  +- D_TLK                (see above)
+ |     |     |     |  |  
+ |     |     |     |  +- D_XGKL              
+ |     |     |     |  |    
+ |     |     |     |  +- D_NORMK              (see above)
+ |     |     |     |     
+ |     |     |     +- _DPACK_K_to_k        (see above)
+ |     |     |        
+ |     |     +- _DSTRUNC            
+ |     |     |  | 
+ |     |     |  +- _ENTER_UNARY_L64     (see above)
+ |     |     |  |  
+ |     |     |  +- _DUNPACK_k_to_K_Unary
+ |     |     |  |    
+ |     |     |  +- _D_LONGK            
+ |     |     |     | 
+ |     |     |     +- _NEG_L_HX            (see above)
+ |     |     |        
+ |     |     +- _DUFLOAT            
+ |     |     |  | 
+ |     |     |  +- _ENTER_UNARY_L64_4   (see above)
+ |     |     |  |  
+ |     |     |  +- _D_FLOATK           
+ |     |     |  |  | 
+ |     |     |  |  +- D_CLRK_Unary         (see above)
+ |     |     |  |     
+ |     |     |  +- _DPACK_K_to_k_Unary  (see above)
+ |     |     |     
+ |     |     +- _DSUB               
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L64    (see above)
+ |     |     |  |  
+ |     |     |  +- _DSUB_Common        
+ |     |     |     | 
+ |     |     |     +- _DADD_Common         (see above)
+ |     |     |        
+ |     |     +- _DADD_RC            
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L64_RC (see above)
+ |     |     |  |  
+ |     |     |  +- _DADD_Common         (see above)
+ |     |     |     
+ |     |     +- Ten                 
+ |     |     |  | 
+ |     |     |  +- _COPY                (see above)
+ |     |     |  |  
+ |     |     |  +- _DMUL                (see above)
+ |     |     |  |  
+ |     |     |  +- _POP64               (see above)
+ |     |     |     
+ |     |     +- _IDIVS_STAR08       
+ |     |     |  | 
+ |     |     |  +- _SPLITSIGN          
+ |     |     |     | 
+ |     |     |     +- _IDIVMOD            
+ |     |     |          
+ |     |     +- _IMODS_STAR08       
+ |     |     |  | 
+ |     |     |  +- _SPLITSIGN           (see above)
+ |     |     |     
+ |     |     +- _LDIVU_RC           
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L_RC   (see above)
+ |     |     |  |  
+ |     |     |  +- _LDIVU_k_is_k_div_j 
+ |     |     |     | 
+ |     |     |     +- _LDIVMOD            
+ |     |     |          
+ |     |     +- _LMODU_RC           
+ |     |     |  | 
+ |     |     |  +- _ENTER_BINARY_L_RC   (see above)
+ |     |     |  |  
+ |     |     |  +- _LMODU_k_is_k_mod_j 
+ |     |     |     | 
+ |     |     |     +- _LDIVMOD             (see above)
+ |     |     |        
+ |     |     +- _DCMP_RC            
+ |     |        | 
+ |     |        +- _ENTER_BINARY_L64_RC (see above)
+ |     |        |  
+ |     |        +- _DCMP_k_rel_j       
+ |     |             
+ |     +- glcd_message         (see above)
+ |        
+ +- _Startup            
+    | 
+    +- Init                
+    |  | 
+    |  +- loadByte            
+    |       
+    +- main                 (see above)
+       
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 5
+Total size of all blocks to be downloaded: 8823
+
